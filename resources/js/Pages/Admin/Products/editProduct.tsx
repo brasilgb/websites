@@ -15,7 +15,6 @@ import {
 } from '@/Components/Admin/PageTop';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { router, useForm, usePage } from '@inertiajs/react';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useRef } from 'react';
 import { IoBasketSharp } from 'react-icons/io5';
@@ -55,7 +54,7 @@ const editProduct = ({ product, categories, productCategory }: any) => {
     patch,
     processing,
     errors,
-  }: InertiaFormProps<PostProps> = useForm({
+  } = useForm({
     brand: product.brand,
     title: product.title,
     summary: product.summary,

@@ -17,7 +17,6 @@ import {
   HeaderContent,
   TitleTop,
 } from '@/Components/Admin/PageTop';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 
 interface SettingsProps {
   logo: any;
@@ -46,7 +45,7 @@ const Settings = ({ setting }: any) => {
     patch,
     processing,
     errors,
-  }: InertiaFormProps<SettingsProps> = useForm({
+  } = useForm({
     logo: setting.logo,
     title: setting?.title,
     description: setting?.description,

@@ -16,6 +16,7 @@ export default {
               },
               colors: {
                 "megb-blue-login": "#008ECC",
+                "megb-blue-plus": "#2E3247",
                 "megb-blue-primary": "#0C356A",
                 "megb-blue-secundary": "#0F52BA",
                 "megb-blue-terciary": "#0E4D92",

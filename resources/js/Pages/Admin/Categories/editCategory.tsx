@@ -16,7 +16,6 @@ import {
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { selectModule } from '@/Libs';
 import { useForm, usePage } from '@inertiajs/react';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 import React from 'react';
 import { IoList } from 'react-icons/io5';
 
@@ -37,7 +36,7 @@ const editCategory = ({ category, parent }: any) => {
     patch,
     processing,
     errors,
-  }: InertiaFormProps<CategoryProps> = useForm({
+  } = useForm({
     name: category.name,
     description: category.description,
     parent: category.parent,

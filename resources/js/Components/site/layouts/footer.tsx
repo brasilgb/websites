@@ -8,7 +8,7 @@ interface FooterProps {
 const FooterLayout = ({data}: FooterProps) => {
   return (
     <footer>
-      <div className="bg-blue-cinco py-4 text-gray-400">
+      <div className="bg-megb-blue-plus py-4 text-gray-400">
         <div className="container px-4 mx-auto">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="px-4 my-4 w-full xl:w-1/5">

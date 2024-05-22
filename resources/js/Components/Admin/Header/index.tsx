@@ -6,10 +6,10 @@ type Props = {};
 
 const Header = (props: Props) => {
     return (
-        <header className="flex items-center justify-between h-[65px] bg-white shadow-sm pr-4">
-            <div className="ml-4 py-1 px-4 bg-blue-cinco rounded">
+        <header className="flex items-center justify-between h-[65px] bg-gray-50 shadow-sm pr-4">
+            <div className="ml-4">
                 <Link
-                    className="text-base text-gray-50 font-semibold hover:underline"
+                    className="text-xs py-1.5 px-4 bg-megb-blue-primary uppercase rounded text-gray-50 font-bold hover:underline"
                     href="/"
                 >
                     Ir para o site

@@ -28,13 +28,14 @@ interface ButtonsProps {
   sttmessage?: number;
 }
 
-export const AddButton = ({ url, label }: ButtonsProps) => {
+export const AddButton = ({ processing, url, label }: ButtonsProps) => {
   return (
     <Link
       className="flex items-center justify-center bg-blue-700 hover:bg-blue-600 py-1.5 px-3 rounded-md shadow text-gray-50 self-end"
       href={url}
       as="button"
       type="button"
+      disabled={processing}
     >
       <IoAdd size={18} />
       <span>{label}</span>
@@ -207,7 +208,7 @@ export const OrderButton = ({ url }: ButtonsProps) => {
   );
 };
 
-export const EditButton = ({ url }: ButtonsProps) => {
+export const EditButton = ({ processing, url }: ButtonsProps) => {
   return (
     <Link
       className="flex items-center justify-center bg-orange-600 hover:bg-orange-500 py-1.5 px-3 rounded-md shadow text-gray-50 self-end"
@@ -215,6 +216,7 @@ export const EditButton = ({ url }: ButtonsProps) => {
       as="button"
       type="button"
       title={`Editar registro`}
+      disabled={processing}
     >
       <TbEdit size={18} />
     </Link>

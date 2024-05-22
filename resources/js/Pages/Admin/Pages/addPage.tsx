@@ -12,12 +12,11 @@ import {
   HeaderContent,
   TitleTop,
 } from '@/Components/Admin/PageTop';
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useForm, usePage } from '@inertiajs/react';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 import React, { useEffect, useRef } from 'react';
 import { IoDocumentSharp } from 'react-icons/io5';
 import { Editor } from '@tinymce/tinymce-react';
+import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 
 interface PageProps {
   title: string;
@@ -40,7 +39,7 @@ const addPage = () => {
     post,
     processing,
     errors,
-  }: InertiaFormProps<PageProps> = useForm({
+  } = useForm({
     title: '',
     summary: '',
     content: '',

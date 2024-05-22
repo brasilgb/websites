@@ -97,7 +97,7 @@ export default function Register() {
 
                 <div className="flex items-center justify-end mt-4">
                     <PrimaryButton className="w-full" disabled={processing}>
-                        Register
+                        Registrar
                     </PrimaryButton>
                 </div>
             </form>

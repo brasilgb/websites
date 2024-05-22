@@ -17,7 +17,7 @@ import { IoGridSharp } from "react-icons/io5";
 import { BackButton, SaveButton } from "@/Components/Admin/Buttons";
 import { router, useForm, usePage } from "@inertiajs/react";
 
-const Section = ({ categories, section }) => {
+const Section = ({ categories, section }: any) => {
     const { flash } = usePage().props;
 
     const options = categories.map((cat: any) => ({

@@ -46,11 +46,11 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-blue-cinco">
+            <div className="bg-megb-blue-plus">
                 <div className="container h-16 md:px-0 px-6 md:mx-auto flex flex-row items-center justify-start">
                     <div className="mr-8 w-18">
                         <Link href={route('home')}>
-                            <AppLogo src={`/storage/images/${data.conf[0]?.logo}`} />
+                            <AppLogo src={`/storage/images/${data[0]?.logo ? data[0]?.logo : "default.png"}`} />
                         </Link>
                     </div>
                     <div className="flex justify-between flex-1">

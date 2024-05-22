@@ -14,7 +14,6 @@ import {
 } from '@/Components/Admin/PageTop';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useForm, usePage } from '@inertiajs/react';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 import React, { useEffect, useRef } from 'react';
 import { IoBasketSharp } from 'react-icons/io5';
 import { Editor } from '@tinymce/tinymce-react';
@@ -48,7 +47,7 @@ const addProduct = ({ categories }: any) => {
     post,
     processing,
     errors,
-  }: InertiaFormProps<PageProps> = useForm({
+  } = useForm({
     brand: '',
     title: '',
     summary: '',
@@ -77,7 +76,9 @@ const addProduct = ({ categories }: any) => {
 
   return (
     <AuthenticatedLayout>
-      <Card>
+      <Card>.
+
+        0
         <HeaderContent>
           <TitleTop>
             <IoBasketSharp size={30} />

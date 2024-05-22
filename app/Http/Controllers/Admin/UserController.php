@@ -23,7 +23,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {        
+    {
         $settings = Settings::first();
 
         if (Auth::user()->role === 1) {
@@ -40,7 +40,6 @@ class UserController extends Controller
         $users = $query->paginate(10);
 
         return Inertia::render('Admin/Users/index', ['users' => $users]);
-
     }
 
     /**
@@ -50,13 +49,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        
-        if(Auth::user()->role === 1 ) {
-            return Redirect::route('users.index');
-        }else{
-            return Inertia::render('Admin/Users/adUser');
-        }
-       
+        return Inertia::render('Admin/Users/addUser');
     }
 
     /**
@@ -77,7 +70,8 @@ class UserController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'username' => 'required',
+                'status' => 'required',
+                'roles' => 'required',
                 'email' => 'required|email|unique:' . User::class,
                 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'password_confirmation' => 'required'
@@ -85,7 +79,7 @@ class UserController extends Controller
             $messages,
             [
                 'name' => 'nome',
-                'username' => 'nome de usuário',
+                'roles' => 'função',
                 'email' => 'e-mail',
                 'password_confirmation' => 'repita a senha'
             ]
@@ -110,7 +104,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return Inertia::render('Admin/Users/edUser', ['user' => $user]);
+        return Inertia::render('Admin/Users/editUser', ['user' => $user]);
     }
 
     /**
@@ -143,14 +137,15 @@ class UserController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'username' => 'required',
+                'status' => 'required',
+                'roles' => 'required',
                 'email' => 'required|email',
                 'password' => 'confirmed'
             ],
             $messages,
             [
                 'name' => 'nome',
-                'username' => 'nome de usuário',
+                'roles' => 'função',
                 'email' => 'e-mail',
                 'password_confirmation' => 'repita a senha'
             ]
