@@ -35,6 +35,8 @@ const Section = ({ categories, section }: any) => {
 
     function handleSubmit(e: any) {
         e.preventDefault();
+        console.log(data);
+        
         router.post(route("sections.update", section?.id), {
             _method: "put",
             section1: data.section1.value,

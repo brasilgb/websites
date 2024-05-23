@@ -15,18 +15,19 @@ use Inertia\Inertia;
 class SectionController extends Controller
 {
     public function index()
-    {        
-       
+    {
+
         if (!Section::count()) :
             Section::create(['section1' => null]);
         endif;
         $section = Section::first();
         $categories = Category::get();
 
-        return Inertia::render('Admin/Section/index', [ 'categories' => $categories, 'section' => $section]);
+        return Inertia::render('Admin/Section/index', ['categories' => $categories, 'section' => $section]);
     }
 
-    public function update(Request $request, Section $section) {
+    public function update(Request $request, Section $section)
+    {
         $data = $request->all();
         $section->update($data);
         Session::flash('success', 'Home do site editada com sucesso!');

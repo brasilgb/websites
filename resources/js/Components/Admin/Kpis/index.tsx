@@ -5,7 +5,7 @@ interface KpisProps {
     props: {
         title: string;
         value: string;
-        url: string;
+        url: any;
         icon: JSX.Element;
     };
 }

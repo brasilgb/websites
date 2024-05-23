@@ -43,7 +43,7 @@ const Dashboard = ({ categories, posts, pages, users }: any) => {
                         props={{
                             title: "Postagens",
                             value: posts,
-                            url: "/admin/postagens",
+                            url: "/admin/posts",
                             icon: <IoDocumentTextSharp size={50} color="#EEA917" />,
                         }}
                     />
@@ -51,7 +51,7 @@ const Dashboard = ({ categories, posts, pages, users }: any) => {
                         props={{
                             title: "Páginas",
                             value: pages,
-                            url: "/admin/paginas",
+                            url: "/admin/pages",
                             icon: <IoDocumentSharp size={50} color="#0D9488" />,
                         }}
                     />
