@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 
 const MenuButton = () => {
     const [openMenu, setOpenMenu] = useState<boolean>(false);

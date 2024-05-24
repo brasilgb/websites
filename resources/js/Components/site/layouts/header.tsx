@@ -15,7 +15,7 @@ interface HeaderProps {
 const HeaderLayout = ({ data }: HeaderProps) => {
 
     return (
-        <div className="shadow-md flex flex-col mb-4">
+        <div className="shadow-md flex flex-col z-40">
             <div className="bg-gray-300">
                 <div className="container m-auto h-12 flex items-center justify-between">
                     <div className="flex-1 flex justify-between gap-8">

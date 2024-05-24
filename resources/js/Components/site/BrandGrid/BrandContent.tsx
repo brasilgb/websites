@@ -4,7 +4,7 @@ interface MarkProps {
     children: ReactNode;
 }
 
-const MarkContent = ({ children }: MarkProps) => {
+const BrandContent = ({ children }: MarkProps) => {
     return (
         <div className="bg-white rounded-md shadow-md p-8 duration-500 hover:scale-105 hover:shadow-lg">
             {children}
@@ -12,4 +12,4 @@ const MarkContent = ({ children }: MarkProps) => {
     )
 }
 
-export default MarkContent
+export default BrandContent
