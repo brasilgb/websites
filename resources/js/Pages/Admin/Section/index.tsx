@@ -26,17 +26,15 @@ const Section = ({ categories, section }: any) => {
     }));
 
     const { data, setData, processing } = useForm({
-        section1: section?.section1,
-        section2: section?.section2,
-        section3: section?.section3,
-        section4: section?.section4,
-        section5: section?.section5,
+        section1: section?.section1 ? section?.section1 : '',
+        section2: section?.section2 ? section?.section2 : '',
+        section3: section?.section3 ? section?.section3 : '',
+        section4: section?.section4 ? section?.section4 : '',
+        section5: section?.section5 ? section?.section5 : '',
     });
 
     function handleSubmit(e: any) {
         e.preventDefault();
-        console.log(data);
-        
         router.post(route("sections.update", section?.id), {
             _method: "put",
             section1: data.section1.value,
