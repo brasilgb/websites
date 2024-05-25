@@ -35,7 +35,7 @@ const MenuButton = () => {
                     {openMenu ? <MClose /> : <MHamburger />}
                 </button>
             </div>
-            <div className={`fixed top-16 right-0 bottom-8 left-0 bg-white z-10 transition-transform ${!openMenu ? '-translate-x-full' : '-translate-x-0'}`}>
+            <div className={`fixed top-16 right-0 bottom-0 left-0 bg-white z-10 transition-transform ${!openMenu ? '-translate-x-full' : '-translate-x-0'}`}>
 
             </div>
         </>

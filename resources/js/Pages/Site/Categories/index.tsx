@@ -1,11 +1,22 @@
 import React from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
+import ProductsGrid from "@/Components/site/ProductsGrid";
+import ServicesGrid from "@/Components/site/ServicesGrid";
 
-const Categories = ({ category }) => {
+interface CategoryProps {
+  category: any;
+}
+
+const Categories = ({ category }: CategoryProps) => {
+  console.log(category.posts)
+  const categorytype = category.slug;
   return (
     <GuestLayout>
-      {/* <SectionCategory titleShow={false} classSection="bg-white py-4" category={category} classPosts="border border-gray-200 rounded-md hover:shadow-lg bg-gray-50 h-full" /> */}
-      categories
+      ok
+      {categorytype === 'cat-produtos'
+        ? <ProductsGrid data={category} />
+        : <ServicesGrid data={category} />
+      }
     </GuestLayout>
   );
 };

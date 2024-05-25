@@ -15,7 +15,8 @@ interface HeaderProps {
 const HeaderLayout = ({ data }: HeaderProps) => {
 
     return (
-        <div className="shadow-md flex flex-col z-40">
+        // <div className="shadow-md flex flex-col z-40">
+        <>
             <div className="bg-gray-300">
                 <div className="container m-auto h-12 flex items-center justify-between">
                     <div className="flex-1 flex justify-between gap-8">
@@ -46,7 +47,7 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                     </div>
                 </div>
             </div>
-            <div className="bg-megb-blue-plus">
+            <div className="bg-megb-blue-plus sticky top-0 shadow-md flex flex-col z-40">
                 <div className="container h-16 md:px-0 px-6 md:mx-auto flex flex-row items-center justify-start">
                     <div className="mr-8 w-18">
                         <Link href={route('home')}>
@@ -66,7 +67,7 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
