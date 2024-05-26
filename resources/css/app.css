@@ -7,6 +7,9 @@
     body {
         @apply font-roboto antialiased;
     }
+    h5 {
+        @apply text-3xl
+    }
 }
 
 @layer components {

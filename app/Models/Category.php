@@ -16,6 +16,7 @@ class Category extends Model
         'slug',
         'title',
         'description',
+        'featured',
         'module',
         'active',
         'parent'

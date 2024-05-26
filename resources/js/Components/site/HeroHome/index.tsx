@@ -5,11 +5,11 @@ interface HeroProps {
   data: any;
 }
 
-const HeroHome = ({data}: HeroProps) => {
-  console.log(data)
+const HeroHome = ({ data }: HeroProps) => {
+
   return (
     <section className="bg-gray-200 md:py-12 py-6">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl mx-auto px-0 ">
         <div
           className="mx-auto max-w-7xl px-4 lg:px-8 flex gap-3 flex-col md:flex-row">
           <div className="md:text-center lg:text-left">

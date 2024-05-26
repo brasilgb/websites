@@ -10,8 +10,8 @@ interface LinkMenuProps {
 const LinkMenu = (props: LinkMenuProps) => {
     return (
         <Link
-            className={`text-base md:text-slate-300 md:hover:text-slate-500 text-megb-blue-plus hover:text-megb-blue-primary transition-colors duration-150 ease-in-out`}
-            href={route("slug",props.slug)}
+        className="text-base text-slate-300 hover:text-slate-500 transition-colors duration-150 ease-in-out"
+        href={route("slug",props.slug)}
         >
             <span className=''>{props?.title}</span>
         </Link>

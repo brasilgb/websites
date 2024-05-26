@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
+import AddressLink from '../AddressLink';
+import NavTop from '../NavTop';
+interface MenuButtonProps {
+    data: any;
+};
 
-const MenuButton = () => {
+const MenuButton = ({ data }: MenuButtonProps) => {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
 
     const handleOpenMenu = () => {
@@ -36,7 +41,12 @@ const MenuButton = () => {
                 </button>
             </div>
             <div className={`fixed top-16 right-0 bottom-0 left-0 bg-white z-10 transition-transform ${!openMenu ? '-translate-x-full' : '-translate-x-0'}`}>
-
+                <div className='pl-5 mt-4'>
+                    <NavTop data={data} />
+                </div>
+                <div className='absolute bottom-5'>
+                    <AddressLink data={data} />
+                </div>
             </div>
         </>
     );

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('description')->nullable();
+            $table->string('featured');
             $table->integer('module');
             $table->integer('active');
             $table->timestamp('created_at')->useCurrent();

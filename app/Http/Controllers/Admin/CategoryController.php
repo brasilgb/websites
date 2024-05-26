@@ -69,8 +69,18 @@ class CategoryController extends Controller
             ]
         );
 
+        $storePath = public_path('storage/uploads');
+        if (!file_exists($storePath)) {
+            mkdir($storePath, 0777, true);
+        };
+        if ($request->hasfile('featured')) {
+            $fileName = time() . '.' . $request->featured->extension();
+            $request->featured->move($storePath, $fileName);
+        }
+
         $data['parent'] = $request->parent;
         $data['slug'] = Str::slug('cat '.$request->name);
+        $data['featured'] = $request->hasfile('featured') ? $fileName : Null;
         Category::create($data);
         Session::flash('success', 'Categoria criada com sucesso!');
         return Redirect::route('categories.index');
@@ -124,7 +134,18 @@ class CategoryController extends Controller
                 'module' => 'módulo',
             ]
         );
+        $storePath = public_path('storage/uploads');
+        if ($request->hasfile('featured')) {
+            $fileName = time() . '.' . $request->featured->extension();
+            // dd($storePath . DIRECTORY_SEPARATOR . $category->featured);
+            if ($category->featured !== null && file_exists($storePath . DIRECTORY_SEPARATOR . $category->featured)) {
+                unlink($storePath . DIRECTORY_SEPARATOR . $category->featured);
+            }
+            $request->featured->move($storePath, $fileName);
+        }
+
         $data['slug'] = Str::slug('cat '.$request->name);
+        $data['featured'] = $request->hasfile('featured') ? $fileName : $category->featured;
         $data['parent'] = $request->parent;
         $category->update($data);
         Session::flash('success', 'Categoria editada com sucesso!');

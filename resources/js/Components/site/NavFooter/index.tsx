@@ -1,17 +1,17 @@
-import React from 'react'
-import LinkMenu from "./LinkMenu"
 import { Link } from '@inertiajs/react';
+import React from 'react'
+import LinkMenu from './LinkMenu';
 
-interface NavTopProps {
+interface NavFooterProps {
     data: any;
 }
 
-const NavTop = ({ data }: NavTopProps) => {
+const NavFooter = ({ data }: NavFooterProps) => {
 
     return (
-        <nav className="flex md:flex-row flex-col md:gap-6 gap-1">
+        <nav className="flex flex-col gap-1">
             <Link
-                className="text-base md:text-slate-300 md:hover:text-slate-500 text-megb-blue-plus hover:text-megb-blue-primary transition-colors duration-150 ease-in-out"
+                className="text-base text-slate-300 hover:text-slate-500 transition-colors duration-150 ease-in-out"
                 href={route('home')}
             >
                 <span>Home</span>
@@ -30,9 +30,8 @@ const NavTop = ({ data }: NavTopProps) => {
                     param="pagina"
                 />
             ))}
-
         </nav>
     )
 }
 
-export default NavTop
+export default NavFooter

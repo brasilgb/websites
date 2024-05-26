@@ -14,7 +14,6 @@ import {
 } from '@/Components/Admin/PageTop';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { useForm, usePage } from '@inertiajs/react';
-import { InertiaFormProps } from '@inertiajs/react/types/useForm';
 import React, { useEffect, useRef } from 'react';
 import { IoDocumentTextSharp } from 'react-icons/io5';
 import { Editor } from '@tinymce/tinymce-react';
@@ -45,7 +44,7 @@ const addPost = ({ categories }: any) => {
     post,
     processing,
     errors,
-  }: InertiaFormProps<PageProps> = useForm({
+  } = useForm({
     title: '',
     summary: '',
     content: '',
@@ -163,7 +162,7 @@ const addPost = ({ categories }: any) => {
                   <input
                     id="featured"
                     type="file"
-                    onChange={e => setData('featured', e.target.files[0])}
+                    onChange={(e: any) => setData('featured', e.target.files[0])}
                     className="block w-full text-base text-gray-600
                                             file:mr-4 file:py-2.5 file:px-4 file:rounded-l-md
                                             file:border-0 file:text-sm file:font-semibold

@@ -9,7 +9,7 @@ const ProductContent = ({ product }: ProductProps) => {
     return (
         <div className="relative bg-white shadow-md rounded-md duration-500 hover:scale-105 hover:shadow-lg pb-6">
             <a href="#">
-                <img src={`storage/uploads/${product?.featured}`}
+                <img src={`/storage/uploads/${product?.featured}`}
                     alt="Product" className=" object-cover rounded-t-md" />
                 <div className="px-4 py-3">
                     <span className="text-gray-400 mr-3 uppercase text-xs">{product?.brand}</span>

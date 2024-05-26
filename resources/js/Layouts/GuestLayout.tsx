@@ -12,7 +12,7 @@ const GuestLayout = ({ children }: GuestLayoutProps) => {
     const { conf, cat, pag } = usePage().props;
     return (
         <main className="bg-gray-200 flex flex-col min-h-screen antialiased">
-            <ScrollToTop smooth component={<div className="bg-gradient-to-b from-megb-blue-primary via-megb-blue-secundary to-megb-blue-primary bg-megb-blue-secundary h-full flex items-center justify-center rounded shadow-md">
+            <ScrollToTop smooth component={<div className="bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 h-full flex items-center justify-center rounded shadow-md">
                 <img className="mx-auto size-6" src={image} />
             </div>} />
             <Head>
@@ -28,7 +28,7 @@ const GuestLayout = ({ children }: GuestLayoutProps) => {
             <div className="flex-grow">
                 {children}
             </div>
-            <FooterLayout data={conf} />
+            <FooterLayout data={{conf, cat, pag}} />
         </main>
     );
 };

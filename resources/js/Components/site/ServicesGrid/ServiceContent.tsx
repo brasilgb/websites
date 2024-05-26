@@ -11,7 +11,6 @@ const ServiceContent = ({ data }: ServiceProps) => {
         <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:scale-105 hover:shadow-lg pb-6">
             <img src={`/storage/uploads/${data?.featured}`}
                 alt="" className="w-full h-64 object-cover" />
-
             <div className="p-2 md:p-4 flex flex-col">
                 <div className='flex flex-col flex-1 flex-grow'>
                     <h3 className="text-xl font-semibold text-blue-900 mb-2">{data.title}</h3>

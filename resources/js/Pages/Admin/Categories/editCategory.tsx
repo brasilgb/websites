@@ -15,13 +15,14 @@ import {
 } from '@/Components/Admin/PageTop';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { selectModule } from '@/Libs';
-import { useForm, usePage } from '@inertiajs/react';
+import { router, useForm, usePage } from '@inertiajs/react';
 import React from 'react';
 import { IoList } from 'react-icons/io5';
 
 interface CategoryProps {
   name: string;
   description: string;
+  featured: any;
   parent: string;
   module: string;
   active: boolean;
@@ -39,6 +40,7 @@ const editCategory = ({ category, parent }: any) => {
   } = useForm({
     name: category.name,
     description: category.description,
+    featured: category.featured,
     parent: category.parent,
     module: category.module,
     active: category.active,
@@ -46,7 +48,16 @@ const editCategory = ({ category, parent }: any) => {
 
   function handleSubmit(e: any) {
     e.preventDefault();
-    patch(route('categories.update', category.id));
+    // patch(route('categories.update', category.id));
+    router.post(`/admin/categories/${category.id}`, {
+      _method: 'put',
+      name: data.name,
+      description: data.description,
+      featured: data.featured,
+      parent: data.parent,
+      module: data.module,
+      active: data.active,
+    });
   }
 
   return (
@@ -105,6 +116,25 @@ const editCategory = ({ category, parent }: any) => {
                   ></textarea>
                   {errors.description && (
                     <div className="text-red-500">{errors.description}</div>
+                  )}
+                </div>
+
+                <div className="flex flex-col mt-4">
+                  <label className="label-form" htmlFor="featured">
+                    Imagem destacada
+                  </label>
+                  <input
+                    id="featured"
+                    type="file"
+                    onChange={(e: any) => setData('featured', e.target.files[0])}
+                    className="block w-full text-base text-gray-600
+                                            file:mr-4 file:py-2.5 file:px-4 file:rounded-l-md
+                                            file:border-0 file:text-sm file:font-semibold
+                                            file:bg-blue-700 file:text-gray-50 file:cursor-pointer
+                                            hover:file:bg-blue-600 border border-gray-300 rounded-md bg-transparent"
+                  />
+                  {errors.featured && (
+                    <div className="text-red-500">{errors.featured}</div>
                   )}
                 </div>
 

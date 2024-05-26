@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('category_id')->unsigned();
             $table->bigInteger('post_id')->unsigned();
-
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
