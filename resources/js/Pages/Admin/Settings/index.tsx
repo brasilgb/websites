@@ -117,7 +117,7 @@ const Settings = ({ setting }: any) => {
                   <input
                     id="logo"
                     type="file"
-                    onChange={e => setData('logo', e.target.files[0])}
+                    onChange={(e:any) => setData('logo', e.target.files[0])}
                     className="block w-full text-base text-gray-600
                                             file:mr-4 file:py-2.5 file:px-4 file:rounded-l-md
                                             file:border-0 file:text-sm file:font-semibold
