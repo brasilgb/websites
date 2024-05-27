@@ -1,7 +1,7 @@
 
 <IfModule mod_rewrite.c> 
  RewriteEngine On 
- RewriteRule ^(.*)$ public/$1 [L] 
+ RewriteRule ^(.*)$ eplus/public/$1 [L] 
 </IfModule> 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Defina o pacote “ea-php83” como a linguagem padrão de programação “PHP”.
