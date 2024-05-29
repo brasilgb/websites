@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import { url } from "inspector";
 import { IoArrowForward, IoLogoWhatsapp } from 'react-icons/io5';
 
 interface HeroProps {
@@ -8,16 +9,22 @@ interface HeroProps {
 const HeroHome = ({ data }: HeroProps) => {
 
   return (
-    <section className="bg-gray-200 md:py-12 py-6">
+    // <section className="md:py-12 py-6 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url('/storage/uploads/${data[0]?.featured})`}}>
+    <section className="md:py-12 py-6 bg-no-repeat bg-cover bg-center bg-red-200 h-52 md:h-96" 
+    style={{
+      backgroundImage:
+        `url('/storage/uploads/${data[0]?.featured}')`,
+    }}
+    >
+  
       <div className="max-w-7xl mx-auto px-0 ">
         <div
-          className="mx-auto max-w-7xl px-4 lg:px-8 flex gap-3 flex-col md:flex-row">
+          className="mx-auto max-w-7xl px-4 lg:px-8 flex gap-3 flex-col md:flex-row bg-gray-800">
           <div className="md:text-center lg:text-left">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-800 md:text-5xl">
+            <h1 className="text-4xl tracking-tight font-extrabold text-gray-50 md:text-5xl w-2/3">
               <span className="block xl:inline">{data[0]?.title}</span>
             </h1>
-            <p
-              className="mt-3 text-base text-gray-500 md:mt-5 md:text-lg md:max-w-xl md:mx-auto lg:mx-0">
+            <p className="mt-3 text-base text-gray-50 md:mt-5 md:text-lg md:max-w-xl md:mx-auto lg:mx-0">
               {/* <div dangerouslySetInnerHTML={{ __html: data[0]?.content }} /> */}
               {data[0]?.summary}
             </p>
@@ -41,10 +48,10 @@ const HeroHome = ({ data }: HeroProps) => {
 
           </div>
 
-
+{/* 
           <div className="lg:inset-y-0 lg:right-0 lg:w-1/2 my-4">
             <img className="h-56 w-full object-cover md:h-96 lg:w-full lg:h-full" src={`/storage/uploads/${data[0]?.featured}`} alt="" />
-          </div>
+          </div> */}
 
         </div>
 
