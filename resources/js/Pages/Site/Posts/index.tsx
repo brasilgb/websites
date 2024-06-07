@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Link, usePage } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import { IoChevronForwardOutline, IoLocate, IoLocateOutline, IoLocation, IoLogoWhatsapp, IoMail, IoPin, IoPinOutline } from 'react-icons/io5';
 import ContactsForm from '@/Components/site/Contacts';
 import { FaPhone } from 'react-icons/fa6';
@@ -11,6 +11,15 @@ const Posts = ({ posts }: any) => {
 
   return (
     <GuestLayout>
+      <Head>
+        <title>{posts.title}</title>
+        <meta
+          head-key="description"
+          name="description"
+          content="This is the default description"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
       <div className="relative h-60 w-full">
         <img
           src={`/storage/uploads/${posts.featured}`}
@@ -52,7 +61,7 @@ const Posts = ({ posts }: any) => {
           </h5>
           {/* <div dangerouslySetInnerHTML={{ __html: posts?.content }} /> */}
           <div>
-          {Parser().parse(posts?.content)}
+            {Parser().parse(posts?.content)}
           </div>
           {posts.slug === 'pag-contatos' &&
             <div className="px-6 py-12">

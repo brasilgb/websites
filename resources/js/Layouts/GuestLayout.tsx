@@ -15,15 +15,7 @@ const GuestLayout = ({ children }: GuestLayoutProps) => {
             <ScrollToTop smooth component={<div className="bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 h-full flex items-center justify-center rounded shadow-md">
                 <img className="mx-auto size-6" src={image} />
             </div>} />
-            <Head>
-                <title>title</title>
-                <meta
-                    head-key="description"
-                    name="description"
-                    content="This is the default description"
-                />
-                <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-            </Head>
+            
             <HeaderLayout data={{ conf, cat, pag }} />
             <div className="flex-grow">
                 {children}
