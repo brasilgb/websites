@@ -26,13 +26,13 @@ const FooterLayout = ({ data }: FooterProps) => {
                 </div>
               </Link>
               <p className="text-left mt-4">
-                {data.conf[0]?.description}
+                {data.conf?.description}
               </p>
             </div>
 
             <div className="px-4 my-4 w-full sm:w-auto">
               <div>
-                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">{data.conf[0].title}</h2>
+                <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">{data.conf?.title}</h2>
               </div>
               <div>
                 <NavFooter data={data} />
@@ -44,11 +44,11 @@ const FooterLayout = ({ data }: FooterProps) => {
                 <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">Encontre-nos</h2>
               </div>
               <div className='flex flex-col gap-1'>
-                <p>{data.conf[0].email}</p>
-                <p>{data.conf[0].phone}</p>
-                <p>{data.conf[0].city}</p>
-                <p>{data.conf[0].neighborhood}</p>
-                <p>{data.conf[0].address}</p>
+                <p>{data.conf?.email}</p>
+                <p>{data.conf?.phone}</p>
+                <p>{data.conf?.city}</p>
+                <p>{data.conf?.neighborhood}</p>
+                <p>{data.conf?.address}</p>
               </div>
             </div>
             
@@ -57,12 +57,12 @@ const FooterLayout = ({ data }: FooterProps) => {
                 <h2 className="inline-block text-2xl pb-4 mb-4 border-b-4 border-blue-600">Conecte-se conosco</h2>
               </div>
               <div className='flex'>
-              <a href={`https://api.whatsapp.com/send?phone=${data[0]?.whatsapp}&text=Olá, poderia ajudar-me com uma dúvida?`} target='_blank'>
+              <a href={`https://api.whatsapp.com/send?phone=${data.conf?.whatsapp}&text=Olá, poderia ajudar-me com uma dúvida?`} target='_blank'>
                     <div className='mr-2 text-gray-500 border border-gray-500 p-1.5 rounded-full'>
                         <IoLogoWhatsapp size={18} />
                     </div>
                 </a>
-                <a href={data.conf[0]?.instagram} target='_blank'>
+                <a href={data.conf?.instagram} target='_blank'>
                     <div className='text-gray-500 border border-gray-500 p-1.5 rounded-full'>
                         <IoLogoInstagram size={18} />
                     </div>
@@ -76,7 +76,7 @@ const FooterLayout = ({ data }: FooterProps) => {
         <div className="container mx-auto px-4">
           <div className="-mx-4 flex flex-wrap justify-between">
             <div className="px-4 md:w-auto md:text-left w-full text-center text-sm">
-              &copy;{moment().format('YYYY')} - {data[0]?.title} . Todos os direitos reservados.
+              &copy;{moment().format('YYYY')} - {data.conf?.title} . Todos os direitos reservados.
             </div>
             <div className="px-4 md:w-auto md:text-left w-full text-center text-sm">
               <a href="https://megb.com.br" target="_blank" rel="noopener noreferrer" title='Dsenvolvido por MEGB'>

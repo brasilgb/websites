@@ -16,14 +16,14 @@ const NavTop = ({ data }: NavTopProps) => {
             >
                 <span>Home</span>
             </Link>
-            {data?.cat[0].map((cat: any, idx: number) => (
+            {data?.cat.map((cat: any, idx: number) => (
                 <LinkMenu
                     title={cat.name}
                     slug={cat.slug}
                     param={"categoria"}
                 />
             ))}
-            {data?.pag[0].map((pag: any, idx: number) => (
+            {data?.pag.map((pag: any, idx: number) => (
                 <LinkMenu
                     title={pag.title}
                     slug={pag.slug}

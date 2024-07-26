@@ -9,18 +9,18 @@ interface GuestLayoutProps {
 }
 
 const GuestLayout = ({ children }: GuestLayoutProps) => {
-    const { conf, cat, pag } = usePage().props;
+    const { datasite } = usePage().props;
     return (
         <main className="bg-gray-200 flex flex-col min-h-screen antialiased">
             <ScrollToTop smooth component={<div className="bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 h-full flex items-center justify-center rounded shadow-md">
                 <img className="mx-auto size-6" src={image} />
             </div>} />
             
-            <HeaderLayout data={{ conf, cat, pag }} />
+            <HeaderLayout data={datasite} />
             <div className="flex-grow">
                 {children}
             </div>
-            <FooterLayout data={{conf, cat, pag}} />
+            <FooterLayout data={datasite} />
         </main>
     );
 };

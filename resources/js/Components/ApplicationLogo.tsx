@@ -3,12 +3,12 @@ interface ApplicationLogoProps {
     className?: string;
 }
 const ApplicationLogo = ({className}: ApplicationLogoProps) => {
-    const { conf } = usePage().props as any;
+    const { datasite } = usePage().props as any;
 
     return (
             <div className={className}>
                 <img
-                src={`/storage/images/${conf[0]?.logo ? conf[0]?.logo : "default.png"}`}
+                src={`/storage/images/${datasite.conf?.logo ? datasite.conf?.logo : "default.png"}`}
                 alt="Logo"
             />
             </div>

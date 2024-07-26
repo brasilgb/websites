@@ -41,17 +41,11 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'conf' => fn () => [
-                Settings::orderBy('id', 'DESC')->first(),
-            ],
-            'cat' => fn () => [
-                Category::where('active', 1)->with('subCategories')->orderBy('id', 'DESC')->get(),
-            ],
-            'pag' => fn () => [
-                Post::where('type', 0)->orderBy('id', 'DESC')->get(),
-            ],
-            'userexist' => fn () => [
-                DB::table('users')->where('id', '>', 1)->exists()
+            'datasite' => [
+                'config' => Settings::orderBy('id', 'DESC')->first(),
+                'cat' => Category::where('active', 1)->with('subCategories')->orderBy('id', 'DESC')->get(),
+                'pag' => Post::where('type', 0)->orderBy('id', 'DESC')->get(),
+                'userexist' => DB::table('users')->where('id', '>', 1)->exists()
             ],
         ];
     }

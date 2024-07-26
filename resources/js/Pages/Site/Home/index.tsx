@@ -23,11 +23,10 @@ const Home = ({ sections, categories }: any) => {
   const products = categories
     .filter((s: any) => s.id === sections?.section4)
     .map((category: any) => category);
-console.log(products.posts);
 
   return (
     <GuestLayout>
-            <Head>
+      <Head>
         <title>Home</title>
         <meta
           head-key="description"
