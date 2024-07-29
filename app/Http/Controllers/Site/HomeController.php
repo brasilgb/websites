@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function index() {
         $sections = Section::first();
-        $categories = Category::with('posts')->get();
+        $categories = Category::with('posts')->with('subCategories')->get();
 
         return Inertia::render('Site/Home/index', ['sections' => $sections, 'categories' => $categories]);
     }

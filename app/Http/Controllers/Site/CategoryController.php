@@ -11,8 +11,8 @@ class CategoryController extends Controller
 {
     public function index(Request $request) {
 
-        $category = Category::with('posts')->where('slug', $request->category)->first();
+        $categories = Category::with('posts')->with('subCategories')->where('slug', $request->category)->get();
 
-        return Inertia::render('Site/Categories/index', [ 'category' => $category]);
+        return Inertia::render('Site/Categories/index', [ 'category' => $categories]);
     }
 }

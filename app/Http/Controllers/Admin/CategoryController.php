@@ -60,12 +60,10 @@ class CategoryController extends Controller
         $request->validate(
             [
                 'name' => ['required'],
-                'module' => ['required'],
             ],
             $messages,
             [
                 'name' => 'categoria',
-                'module' => 'módulo',
             ]
         );
 
@@ -126,12 +124,10 @@ class CategoryController extends Controller
         $request->validate(
             [
                 'name' => ['required'],
-                'module' => ['required'],
             ],
             $messages,
             [
                 'name' => 'categoria',
-                'module' => 'módulo',
             ]
         );
         $storePath = public_path('storage/uploads');

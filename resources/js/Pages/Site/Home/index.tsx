@@ -23,6 +23,7 @@ const Home = ({ sections, categories }: any) => {
   const products = categories
     .filter((s: any) => s.id === sections?.section4)
     .map((category: any) => category);
+//console.log(sections?.section3);
 
   return (
     <GuestLayout>
@@ -35,8 +36,9 @@ const Home = ({ sections, categories }: any) => {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
+      
       {sections?.section1 && <HeroHome data={hero[0].posts} />}
-      {sections?.section2 && <ServicesGrid data={services[0].posts} />}
+      {sections?.section2 && <ServicesGrid data={services[0].sub_categories} />}
       {sections?.section3 && <BrandGrid data={brands[0].posts} />}
       {sections?.section4 && <ProductsGrid data={products[0].posts} />}
     </GuestLayout>

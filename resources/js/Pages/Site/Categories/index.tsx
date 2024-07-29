@@ -11,6 +11,8 @@ interface CategoryProps {
 
 const Categories = ({ category }: CategoryProps) => {
   const categorytype = category.slug;
+  console.log(category);
+  
   return (
     <GuestLayout>
       <Head>
@@ -59,7 +61,7 @@ const Categories = ({ category }: CategoryProps) => {
 
         {categorytype === 'cat-produtos'
           ? <ProductsGrid data={category.posts} />
-          : <ServicesGrid data={category.posts} />
+          : <ServicesGrid data={category.sub_categories} />
         }
       </>
     </GuestLayout>
