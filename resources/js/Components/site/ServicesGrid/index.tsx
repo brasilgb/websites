@@ -6,8 +6,7 @@ interface ServiceProps {
 }
 
 const ServicesGrid = ({ data }: ServiceProps) => {
-console.log(data);
-
+    console.log(data);
     return (
         <section className="bg-gray-50 px-4 py-8">
             <div className="container mx-auto">
