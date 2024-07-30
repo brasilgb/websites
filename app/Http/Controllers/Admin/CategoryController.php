@@ -77,7 +77,7 @@ class CategoryController extends Controller
         }
 
         $data['parent'] = $request->parent;
-        $data['slug'] = Str::slug('cat '.$request->name);
+        $data['slug'] = Str::slug($request->name);
         $data['featured'] = $request->hasfile('featured') ? $fileName : Null;
         Category::create($data);
         Session::flash('success', 'Categoria criada com sucesso!');
@@ -140,7 +140,7 @@ class CategoryController extends Controller
             $request->featured->move($storePath, $fileName);
         }
 
-        $data['slug'] = Str::slug('cat '.$request->name);
+        $data['slug'] = Str::slug($request->name);
         $data['featured'] = $request->hasfile('featured') ? $fileName : $category->featured;
         $data['parent'] = $request->parent;
         $category->update($data);

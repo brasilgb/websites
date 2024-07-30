@@ -30,7 +30,7 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
-Route::get('/site/{slug}', [RedirectController::class, 'index'])->name('slug');
+Route::get('/{slug}', [RedirectController::class, 'index'])->name('slug');
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);

@@ -86,7 +86,7 @@ class PostController extends Controller
             $request->featured->move($storePath, $fileName);
         }
 
-        $data['slug'] = Str::slug('pos '.$request->title);
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->hasfile('featured') ? $fileName : Null;
         Post::create($data);
 
@@ -161,7 +161,7 @@ class PostController extends Controller
             }
         }
 
-        $data['slug'] = Str::slug('pos '.$request->title);
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->hasfile('featured') ? $fileName : $post->featured;
         $post->update($data);
 
