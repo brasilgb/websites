@@ -1,18 +1,18 @@
-import ServiceContent from "./ServiceContent"
 import React, { Fragment } from "react";
+import CategoryContent from "./CategoryContent";
 
 interface ServiceProps {
     data: any;
 }
 
-const ServicesGrid = ({ data }: ServiceProps) => {
+const SubCategoriesGrid = ({ data }: ServiceProps) => {
     return (
         <section className="bg-gray-50 px-4 py-8">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                     {data?.map((service: any, idx: number) => (
                         <Fragment key={idx}>
-                            <ServiceContent data={service} />
+                            <CategoryContent data={service} />
                         </Fragment>
                     ))}
                 </div>
@@ -22,4 +22,4 @@ const ServicesGrid = ({ data }: ServiceProps) => {
     )
 }
 
-export default ServicesGrid
+export default SubCategoriesGrid

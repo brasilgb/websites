@@ -19,11 +19,11 @@ import { router, useForm, usePage } from "@inertiajs/react";
 
 const Section = ({ categories, section }: any) => {
     const { flash } = usePage().props;
-
-    const options = categories.map((cat: any) => ({
+    const datacat = categories.map((cat: any) => ({
         value: cat.id,
         label: cat.name,
     }));
+    const options = [...datacat, {value: '', label: 'Selecione a Categoria'}]
 
     const { data, setData, processing } = useForm({
         section1: section?.section1 ? section?.section1 : '',
@@ -78,7 +78,6 @@ const Section = ({ categories, section }: any) => {
                                         onChange={(selected) =>
                                             setData("section1", selected)
                                         }
-                                        placeholder="Selecione a(s) categoria(s)"
                                         styles={{
                                             multiValueLabel: (base) => ({
                                                 ...base,
@@ -105,7 +104,6 @@ const Section = ({ categories, section }: any) => {
                                         onChange={(selected) =>
                                             setData("section2", selected)
                                         }
-                                        placeholder="Selecione a(s) categoria(s)"
                                         styles={{
                                             multiValueLabel: (base) => ({
                                                 ...base,
@@ -132,7 +130,6 @@ const Section = ({ categories, section }: any) => {
                                         onChange={(selected) =>
                                             setData("section3", selected)
                                         }
-                                        placeholder="Selecione a(s) categoria(s)"
                                         styles={{
                                             multiValueLabel: (base) => ({
                                                 ...base,
@@ -159,7 +156,6 @@ const Section = ({ categories, section }: any) => {
                                         onChange={(selected) =>
                                             setData("section4", selected)
                                         }
-                                        placeholder="Selecione a(s) categoria(s)"
                                         styles={{
                                             multiValueLabel: (base) => ({
                                                 ...base,
@@ -187,7 +183,6 @@ const Section = ({ categories, section }: any) => {
                                         onChange={(selected) =>
                                             setData("section5", selected)
                                         }
-                                        placeholder="Selecione a(s) categoria(s)"
                                         styles={{
                                             multiValueLabel: (base) => ({
                                                 ...base,

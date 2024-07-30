@@ -4,15 +4,13 @@ import ProductsGrid from "@/Components/site/ProductsGrid";
 import ServicesGrid from "@/Components/site/ServicesGrid";
 import { Head, Link } from '@inertiajs/react';
 import { IoChevronForwardOutline } from 'react-icons/io5';
+import SubCategoriesGrid from "@/Components/site/SubCategoriesGrid";
 
 interface CategoryProps {
   category: any;
 }
 
 const Categories = ({ category }: CategoryProps) => {
-  const categorytype = category.slug;
-  // const showProductsOrCategory = category.sub_categories ? 'tem posts na subcategoria' : 'nao tem poosts'
-  // console.log(category.sub_categories);
 
   return (
     <GuestLayout>
@@ -59,10 +57,12 @@ const Categories = ({ category }: CategoryProps) => {
             </div>
           </div>
         </div>
-
-        {categorytype === 'cat-produtos'
+        {category.sub_categories.length > 0 && 
+        <SubCategoriesGrid data={category.sub_categories} />
+        }
+        {category.slug === 'produtos'
           ? <ProductsGrid data={category.posts} />
-          : <ServicesGrid data={category} />
+          : <ServicesGrid data={category.posts} />
         }
       </>
     </GuestLayout>

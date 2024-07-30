@@ -7,7 +7,7 @@ import { FaPhone } from 'react-icons/fa6';
 import { Parser } from "html-to-react";
 
 const Posts = ({ posts }: any) => {
-  const { conf } = usePage().props as any;
+  const { datasite } = usePage().props as any;
 
   return (
     <GuestLayout>
@@ -63,7 +63,7 @@ const Posts = ({ posts }: any) => {
           <div>
             {Parser().parse(posts?.content)}
           </div>
-          {posts.slug === 'pag-contatos' &&
+          {posts.slug === 'contatos' &&
             <div className="px-6 py-12">
               <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -73,7 +73,7 @@ const Posts = ({ posts }: any) => {
                     </span>
                     <h2 className="mt-4 text-base font-medium text-gray-800">E-mail</h2>
                     <p className="mt-2 text-sm text-gray-500">Entre em contato pelo nosso e-mail.</p>
-                    <p className="mt-2 text-sm text-blue-500">{conf[0].email}</p>
+                    <p className="mt-2 text-sm text-blue-500">{datasite.config.email}</p>
                   </div>
                   <div>
                     <span className="inline-block p-3 text-blue-500 rounded-full bg-blue-100/80">
@@ -83,7 +83,7 @@ const Posts = ({ posts }: any) => {
                     <h2 className="mt-4 text-base font-medium text-gray-800">Whatsapp</h2>
                     <p className="mt-2 text-sm text-gray-500">Converse com nossa equipe.</p>
                     <p className="mt-2 text-sm text-blue-500">
-                      <a href={`https://api.whatsapp.com/send?phone=${conf[0]?.whatsapp}&text=Olá, poderia ajudar-me com uma dúvida?`}>
+                      <a href={`https://api.whatsapp.com/send?phone=${datasite.config?.whatsapp}&text=Olá, poderia ajudar-me com uma dúvida?`}>
                         Começar conversa agora
                       </a>
                     </p>
@@ -95,8 +95,8 @@ const Posts = ({ posts }: any) => {
                     </span>
 
                     <h2 className="mt-4 text-base font-medium text-gray-800">Loja</h2>
-                    <p className="mt-2 text-sm text-gray-500">{conf[0].opening}</p>
-                    <p className="mt-2 text-sm text-blue-500">{conf[0].city} - {conf[0].address}</p>
+                    <p className="mt-2 text-sm text-gray-500">{datasite.config.opening}</p>
+                    <p className="mt-2 text-sm text-blue-500">{datasite.config.city} - {datasite.config.address}</p>
                   </div>
 
                   <div>
@@ -106,7 +106,7 @@ const Posts = ({ posts }: any) => {
 
                     <h2 className="mt-4 text-base font-medium text-gray-800">Telefone</h2>
                     <p className="mt-2 text-sm text-gray-500">Se preferir ligue-nos.</p>
-                    <p className="mt-2 text-sm text-blue-500">{conf[0].phone}</p>
+                    <p className="mt-2 text-sm text-blue-500">{datasite.config.phone}</p>
                   </div>
                 </div>
 
