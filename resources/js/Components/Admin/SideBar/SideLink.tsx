@@ -8,6 +8,7 @@ interface LinkProps {
     active: boolean;
 }
 const SideLink = (props: LinkProps) => {
+   
     return (
         <li>
             <Link

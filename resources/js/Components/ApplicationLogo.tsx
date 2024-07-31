@@ -4,7 +4,6 @@ interface ApplicationLogoProps {
 }
 const ApplicationLogo = ({className}: ApplicationLogoProps) => {
     const { datasite } = usePage().props as any;
-console.log(datasite);
 
     return (
             <div className={className}>

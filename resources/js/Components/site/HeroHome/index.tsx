@@ -7,7 +7,6 @@ interface HeroProps {
 }
 
 const HeroHome = ({ data }: HeroProps) => {
-console.log(data);
 
   return (
     // <section className="md:py-12 py-6 bg-no-repeat bg-cover bg-center" style={{ backgroundImage: `url('/storage/uploads/${data[0]?.featured})`}}>

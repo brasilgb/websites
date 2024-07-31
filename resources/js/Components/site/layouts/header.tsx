@@ -29,11 +29,11 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                             </div>
                         </Link>
                     </div>
-                    <div className="flex justify-between flex-1">
-                        <div className="md:flex justify-start md:flex-1 hidden">
+                    <div className="flex justify-between flex-1 h-full">
+                        <div className="md:flex items-center justify-start md:flex-1 hidden h-full">
                             <NavTop data={data} />
                         </div>
-                        <div className="md:flex hidden">
+                        <div className="md:flex items-center hidden">
                             <Actions />
                         </div>
                     </div>

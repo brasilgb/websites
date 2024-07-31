@@ -1,11 +1,10 @@
 import { Link, useForm, usePage } from '@inertiajs/react';
 import React, { useState } from 'react';
-import { IoExit, IoLogOut, IoPerson } from 'react-icons/io5';
+import { IoExit, IoPerson } from 'react-icons/io5';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
-type Props = {};
-
-const UserDropDown = (props: Props) => {
+const UserDropDown = () => {
+  const { auth } = usePage().props as any;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { post } = useForm();
 
@@ -46,7 +45,7 @@ const UserDropDown = (props: Props) => {
             onClick={toggle}
           >
             <IoPerson />
-            <span className="ml-1">{'auth.user.name'}</span>
+            <span className="ml-1">{auth.user.name}</span>
           </Link>
           <span className="w-full border-b border-gray-200"></span>
           <Link
