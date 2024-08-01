@@ -32,10 +32,6 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
 
-Route::prefix('customer')->middleware('auth')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-});
-
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);

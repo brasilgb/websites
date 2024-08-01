@@ -11,7 +11,6 @@ class PostController extends Controller
 {
     
     public function index(Request $request) {
-
         $post = Post::with('categories')->where('slug', $request->post)->first();
         return Inertia::render('Site/Posts/index', ['post' => $post]);
     }

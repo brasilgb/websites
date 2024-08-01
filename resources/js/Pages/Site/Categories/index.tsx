@@ -28,7 +28,7 @@ const Categories = ({ category }: CategoryProps) => {
           <img
             src={`/storage/uploads/${category?.featured}`}
             alt=""
-            className="object-cover object-center w-full h-full"
+            className="object-fill object-center w-full h-full"
           />
           {/* title and breadcumb */}
           <div className="absolute bg-gray-700 bg-opacity-60 w-full bottom-0 text-gray-50 md:px-0 px-4">

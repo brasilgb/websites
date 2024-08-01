@@ -41,7 +41,6 @@ const Home = ({ sections, categories }: any) => {
         />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </Head>
-      
       {sections?.section1 && <HeroHome data={hero[0].posts} />}
       {sections?.section2 && <CarouselSlide data={slides[0].posts} />}
       {sections?.section3 && <SubCategoriesGrid data={services[0].sub_categories} />}

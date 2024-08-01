@@ -1,10 +1,16 @@
 import React from 'react'
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
+import 'swiper/css';
+
+// import required modules
+import { Autoplay, Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 type Props = {
   data: any;
 }
@@ -12,19 +18,24 @@ type Props = {
 const CarouselSlide = (props: Props) => {
   
   return (
-    <div className='container m-auto'>
+    <div className='container m-auto rounded-md shadow-md p-2 my-4 bg-white'>
       <Swiper
-      // modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+        cssMode={true}
+        navigation={true}
+        mousewheel={true}
+        keyboard={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay, Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper"
       >
         {props.data?.map((image: any, idx: number) => (
-          <SwiperSlide><img src={`storage/uploads/${image.featured}`} width={600} /></SwiperSlide>
+          <SwiperSlide><img className="w-full h-full object-fill block rounded-md" src={`storage/uploads/${image.featured}`} width={600} /></SwiperSlide>
         ))}
 
       </Swiper>
