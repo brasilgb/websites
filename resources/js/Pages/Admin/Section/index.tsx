@@ -67,7 +67,7 @@ const Section = ({ categories, section }: any) => {
                                         className="label-form"
                                         htmlFor="section1"
                                     >
-                                        Secção 1 ( Slide Topo )
+                                        Secção 1 ( Hero )
                                     </label>
                                     <Select
                                         options={options}
@@ -93,7 +93,7 @@ const Section = ({ categories, section }: any) => {
                                         className="label-form"
                                         htmlFor="section2"
                                     >
-                                        Secção 2
+                                        Secção 2 (Slide)
                                     </label>
                                     <Select
                                         options={options}
