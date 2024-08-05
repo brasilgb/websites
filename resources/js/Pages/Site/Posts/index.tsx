@@ -8,7 +8,6 @@ import { Parser } from "html-to-react";
 
 const Posts = ({ posts }: any) => {
   const { datasite } = usePage().props as any;
-console.log(posts);
 
   return (
     <GuestLayout>

@@ -57,8 +57,8 @@ const Categories = ({ category }: CategoryProps) => {
             </div>
           </div>
         </div>
-        {category.sub_categories.length > 0 && 
-        <SubCategoriesGrid data={category.sub_categories} />
+        {category.sub_categories.length > 0 &&
+          <SubCategoriesGrid data={category.sub_categories} />
         }
         {category.slug === 'produtos'
           ? <ProductsGrid data={category.posts} />

@@ -6,6 +6,7 @@ interface ServiceProps {
 }
 
 const CategoryContent = ({ data }: ServiceProps) => {
+console.log(data);
 
     return (
         <Link href={route("slug", data?.slug)}>

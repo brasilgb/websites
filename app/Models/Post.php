@@ -29,9 +29,7 @@ class Post extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    public function subCategories()
-    {
-        return $this->belongsToMany(Category::class);
+    public function subCategories() {
+        return $this->hasMany(Category::class, 'parent');
     }
-
 }
