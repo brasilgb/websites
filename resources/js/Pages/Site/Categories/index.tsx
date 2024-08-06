@@ -5,6 +5,7 @@ import ServicesGrid from "@/Components/site/ServicesGrid";
 import { Head, Link } from '@inertiajs/react';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 import SubCategoriesGrid from "@/Components/site/SubCategoriesGrid";
+import CategoriesGrid from "@/Components/site/CategoriesGrid";
 
 interface CategoryProps {
   category: any;
@@ -57,13 +58,8 @@ const Categories = ({ category }: CategoryProps) => {
             </div>
           </div>
         </div>
-        {category.sub_categories.length > 0 &&
-          <SubCategoriesGrid data={category.sub_categories} />
-        }
-        {category.slug === 'produtos'
-          ? <ProductsGrid data={category.posts} />
-          : <ServicesGrid data={category.posts} />
-        }
+        <CategoriesGrid data={category.posts} />
+        <SubCategoriesGrid data={category.sub_categories} />
       </>
     </GuestLayout>
   );

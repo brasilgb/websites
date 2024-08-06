@@ -6,10 +6,9 @@ interface ServiceProps {
 }
 
 const CategoryContent = ({ data }: ServiceProps) => {
-console.log(data);
 
     return (
-        <Link href={route("slug", data?.slug)}>
+        <Link href={`/servicos/${data?.slug}`}>
             <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:scale-105 hover:shadow-lg">
                 <img src={`/storage/uploads/${data?.featured}`}
                     alt="" className="w-full h-[250px] object-bottom object-fill"

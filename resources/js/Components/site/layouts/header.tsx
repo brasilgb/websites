@@ -2,13 +2,12 @@ import React from 'react'
 import { FaPhoneFlip } from "react-icons/fa6"
 import { IoLogoInstagram, IoLogoWhatsapp, IoMail } from "react-icons/io5"
 import { PiMapPinFill } from "react-icons/pi"
-import NavTop from '../NavTop'
 import Actions from '../Actions'
 import MenuButton from '../MenuButton'
 import { Link } from '@inertiajs/react'
 import ApplicationLogo from '@/Components/ApplicationLogo'
 import AddressLink from '../AddressLink'
-
+import NavTop from "../NavTop"
 interface HeaderProps {
     data?: any;
 }
@@ -31,7 +30,7 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                     </div>
                     <div className="flex justify-between flex-1 h-full">
                         <div className="md:flex items-center justify-start md:flex-1 hidden h-full">
-                            <NavTop data={data} />
+                            <NavTop />
                         </div>
                         <div className="md:flex items-center hidden">
                             <Actions />

@@ -4,11 +4,15 @@ import { Head, usePage } from '@inertiajs/react';
 import React, { ReactNode } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import image from '@/svg/arrow-top.svg'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 interface GuestLayoutProps {
     children: ReactNode;
 }
 
 const GuestLayout = ({ children }: GuestLayoutProps) => {
+
     const { datasite } = usePage().props;
     return (
         <main className="bg-gray-200 flex flex-col min-h-screen antialiased">

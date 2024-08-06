@@ -1,5 +1,6 @@
 import BrandGrid from "@/Components/site/BrandGrid";
 import CarouselSlide from "@/Components/site/CarouselSlide";
+import CategoriesGrid from "@/Components/site/CategoriesGrid";
 import HeroHome from "@/Components/site/HeroHome";
 import ProductsGrid from "@/Components/site/ProductsGrid";
 import ServicesGrid from "@/Components/site/ServicesGrid";
