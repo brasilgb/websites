@@ -10,11 +10,10 @@ use Inertia\Inertia;
 
 class ServiceController extends Controller
 {
-    public function index(Request $request, $category = null, $product = null)
+    public function index($category = null, $service = null)
     {
-        
-        if ($product != null) {
-            $post = Post::with('categories')->with('subCategories')->where('slug', $product)->first();
+        if ($service != null) {
+            $post = Post::with('categories')->where('slug', $service)->first();
             return Inertia::render('Site/Posts/index', ['posts' => $post]);
         };
         if ($category != null) {
@@ -24,6 +23,5 @@ class ServiceController extends Controller
             $category = Category::with('posts')->with('subCategories')->where('slug', 'servicos')->first();
             return Inertia::render('Site/Categories/index', ['category' => $category]);
         };
-
     }
 }

@@ -1,4 +1,4 @@
-import { Link } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import React from 'react'
 
 interface ServiceProps {
@@ -6,9 +6,9 @@ interface ServiceProps {
 }
 
 const CategoryContent = ({ data }: ServiceProps) => {
-
+const { url } = usePage()
     return (
-        <Link href={`/servicos/${data?.slug}`}>
+        <Link href={`${url}/${data?.slug}`}>
             <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:scale-105 hover:shadow-lg">
                 <img src={`/storage/uploads/${data?.featured}`}
                     alt="" className="w-full h-[250px] object-bottom object-fill"

@@ -18,7 +18,6 @@ const SubCategoriesGrid = ({ data }: ServiceProps) => {
                 </div>
             </div>
         </section>
-
     )
 }
 

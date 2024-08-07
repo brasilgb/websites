@@ -8,6 +8,7 @@ import { Parser } from "html-to-react";
 
 const Posts = ({ posts }: any) => {
   const { datasite } = usePage().props as any;
+  const { url } = usePage();
 
   return (
     <GuestLayout>
@@ -27,27 +28,63 @@ const Posts = ({ posts }: any) => {
           className="object-cover object-center w-full h-full"
         />
         {/* title and breadcumb */}
-        <div className="absolute bg-gray-700 bg-opacity-60 w-full bottom-0 text-gray-50 md:px-0 px-4">
+        <div className="absolute bg-gray-700/60 w-full bottom-0 text-gray-50 md:px-0 px-4">
           <div className="container mx-auto">
             <h1 className="text-4xl font-bold text-left text-red-um py-4">
               <span className="drop-shadow">{posts.title}</span>
             </h1>
             <div className="container m-auto">
-              <ul className="py-2 flex items-center justify-start">
+              <ul className="flex items-center justify-start gap-1 text-base font-medium">
                 <li>
                   <Link
-                    className="text-base font-medium hover:text-gray-600"
+                    className="text-gray-300 hover:text-gray-600"
                     href="/"
                   >
                     <span>Home</span>
                   </Link>
                 </li>
-                <li className="text-base text-blue-quatro mx-1">
-                  <IoChevronForwardOutline size={16} />
+                <li>
+                  /
                 </li>
-                <li className="text-base text-blue-quatro">
-                  <span>{posts.title}</span>
+                <li>
+                  {url.split('/')[2]
+                    ? <Link
+                      className="text-gray-300 hover:text-gray-600"
+                      href={`/${url.split('/')[1]}`}
+                    >
+                      <span>{url.split('/')[1]}</span>
+                    </Link>
+                    : <span>{url.split('/')[1]}</span>
+                  }
                 </li>
+                {url.split('/')[2] &&
+                  <>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      {url.split('/')[3]
+                        ? <Link
+                          className="text-gray-300 hover:text-gray-600"
+                          href={`/${url.split('/')[1]}/${url.split('/')[2]}`}
+                        >
+                          <span>{url.split('/')[2]}</span>
+                        </Link>
+                        : <span className="text-gray-50">{url.split('/')[2]}</span>
+                      }
+                    </li>
+                  </>
+                }
+                {url.split('/')[3] &&
+                  <>
+                    <li>
+                      /
+                    </li>
+                    <li>
+                      <span className="text-gray-50">{url.split('/')[3]}</span>
+                    </li>
+                  </>
+                }
               </ul>
             </div>
           </div>

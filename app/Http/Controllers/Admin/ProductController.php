@@ -93,7 +93,7 @@ class ProductController extends Controller
             $request->featured->move($storePath, $fileName);
         }
 
-        $data['slug'] = Str::slug('pro '.$request->title);
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->hasfile('featured') ? $fileName : Null;
         Post::create($data);
 
@@ -175,7 +175,7 @@ class ProductController extends Controller
             }
         }
 
-        $data['slug'] = Str::slug('pro '.$request->title);
+        $data['slug'] = Str::slug($request->title);
         $data['featured'] = $request->hasfile('featured') ? $fileName : $product->featured;
         $product->update($data);
 

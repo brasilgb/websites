@@ -10,11 +10,10 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ProductController as ControllersProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Site\HomeController;
-use App\Http\Controllers\Site\ProductController as SiteProductController;
 use App\Http\Controllers\Site\RedirectController;
+use App\Http\Controllers\Site\ProductController as SiteProductController;
 use App\Http\Controllers\Site\ServiceController as SiteServiceController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -33,9 +32,9 @@ use Inertia\Inertia;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
-Route::get('/{slug?}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
+Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
+Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
 
 Route::prefix('admin')->middleware('auth')->group(function () {
