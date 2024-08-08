@@ -23,9 +23,11 @@ interface CategoryProps {
   name: string;
   description: string;
   featured: any;
+  thumbnail: any;
   parent: string;
   module: string;
   active: boolean;
+  visiblehome: boolean;
 }
 
 const editCategory = ({ category, parent }: any) => {
@@ -41,9 +43,11 @@ const editCategory = ({ category, parent }: any) => {
     name: category.name,
     description: category.description,
     featured: category.featured,
+    thumbnail: category.thumbnail,
     parent: category.parent,
     module: category.module,
     active: category.active,
+    visiblehome: category.visiblehome,
   });
 
   function handleSubmit(e: any) {
@@ -54,9 +58,11 @@ const editCategory = ({ category, parent }: any) => {
       name: data.name,
       description: data.description,
       featured: data.featured,
+      thumbnail: data.thumbnail,
       parent: data.parent,
       module: data.module,
       active: data.active,
+      visiblehome: data.visiblehome,
     });
   }
 
@@ -116,6 +122,25 @@ const editCategory = ({ category, parent }: any) => {
                   ></textarea>
                   {errors.description && (
                     <div className="text-red-500">{errors.description}</div>
+                  )}
+                </div>
+
+                <div className="flex flex-col mt-4">
+                  <label className="label-form" htmlFor="thumbnail">
+                  Thumbnail
+                  </label>
+                  <input
+                    id="thumbnail"
+                    type="file"
+                    onChange={(e: any) => setData('thumbnail', e.target.files[0])}
+                    className="block w-full text-base text-gray-600
+                                            file:mr-4 file:py-2.5 file:px-4 file:rounded-l-md
+                                            file:border-0 file:text-sm file:font-semibold
+                                            file:bg-blue-700 file:text-gray-50 file:cursor-pointer
+                                            hover:file:bg-blue-600 border border-gray-300 rounded-md bg-transparent"
+                  />
+                  {errors.thumbnail && (
+                    <div className="text-red-500">{errors.thumbnail}</div>
                   )}
                 </div>
 
@@ -193,6 +218,20 @@ const editCategory = ({ category, parent }: any) => {
                     Ativar em menus
                   </label>
                 </div>
+
+                <div className="flex items-center mt-4">
+                  <input
+                    type="checkbox"
+                    id="visiblehome"
+                    checked={data.visiblehome}
+                    onChange={e => setData('visiblehome', e.target.checked)}
+                    className="block mr-2 p-2 text-gray-700 bg-white border border-gray-200 rounded-md focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  />
+                  <label className="label-form" htmlFor="visiblehome">
+                    Somente página inicial
+                  </label>
+                </div>
+
               </div>
               <CardFooter className="border-t border-gray-100">
                 <SaveButton processing={processing} />

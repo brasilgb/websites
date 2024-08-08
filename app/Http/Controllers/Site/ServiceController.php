@@ -19,7 +19,7 @@ class ServiceController extends Controller
         if ($category != null) {
             $category = Category::with('posts')->with('subCategories')->where('slug', $category)->first();
             return Inertia::render('Site/Categories/index', ['category' => $category]);
-        }else{
+        } else {
             $category = Category::with('posts')->with('subCategories')->where('slug', 'servicos')->first();
             return Inertia::render('Site/Categories/index', ['category' => $category]);
         };

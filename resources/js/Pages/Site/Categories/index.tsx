@@ -1,18 +1,21 @@
 import React from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import ProductsGrid from "@/Components/site/ProductsGrid";
-import ServicesGrid from "@/Components/site/ServicesGrid";
 import { Head, Link, usePage } from '@inertiajs/react';
-import { IoChevronForwardOutline } from 'react-icons/io5';
 import SubCategoriesGrid from "@/Components/site/SubCategoriesGrid";
+import FilterProducts from "@/Components/site/FilterProducts";
 import CategoriesGrid from "@/Components/site/CategoriesGrid";
+import ServicesGrid from "@/Components/site/ServicesGrid";
 
 interface CategoryProps {
   category: any;
+  products: any;
+  query: any;
 }
 
-const Categories = ({ category }: CategoryProps) => {
+const Categories = ({ category, products, query }: CategoryProps) => {
   const { url } = usePage();
+
   return (
     <GuestLayout>
       <Head>
@@ -76,8 +79,16 @@ const Categories = ({ category }: CategoryProps) => {
             </div>
           </div>
         </div>
-        <CategoriesGrid data={category.posts} />
-        <SubCategoriesGrid data={category.sub_categories} />
+        {url === '/produtos' || query
+          ? <>
+            <FilterProducts data={category.sub_categories} />
+            <ProductsGrid data={products} />
+          </>
+          : <>
+            <CategoriesGrid data={category.posts} />
+            <SubCategoriesGrid data={category.sub_categories} />
+          </>
+        }
       </>
     </GuestLayout>
   );

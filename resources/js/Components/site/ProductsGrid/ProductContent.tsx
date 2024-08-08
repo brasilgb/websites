@@ -7,8 +7,8 @@ interface ProductProps {
 
 const ProductContent = ({ product }: ProductProps) => {
     return (
-        <div className="relative bg-white shadow-md rounded-md duration-500 hover:scale-105 hover:shadow-lg pb-6">
-            <a href="#">
+        <div className="relative bg-white shadow-md rounded-md duration-500 hover:shadow-xl pb-6">
+
                 <img src={`/storage/uploads/${product?.featured}`}
                     alt="Product" className=" object-cover rounded-t-md" />
                 <div className="px-4 py-3">
@@ -24,7 +24,7 @@ const ProductContent = ({ product }: ProductProps) => {
                         </div>
                     </div>
                 </div>
-            </a>
+
         </div>
     )
 }

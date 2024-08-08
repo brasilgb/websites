@@ -5,10 +5,10 @@ interface ServiceProps {
     data: any;
 }
 
-const CategoryContent = ({ data }: ServiceProps) => {
+const HomeCategoryContent = ({ data }: ServiceProps) => {
 const { url } = usePage()
     return (
-        <Link href={`${url}/${data?.slug}`}>
+        <Link href={`/servicos/${data?.slug}`}>
             <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:shadow-xl">
                 <img src={`/storage/uploads/${data?.featured}`}
                     alt="" className="w-full h-[250px] object-bottom object-fill"
@@ -29,4 +29,4 @@ const { url } = usePage()
     )
 }
 
-export default CategoryContent
+export default HomeCategoryContent

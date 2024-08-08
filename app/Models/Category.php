@@ -16,9 +16,11 @@ class Category extends Model
         'slug',
         'title',
         'description',
+        'thumbnail',
         'featured',
         'module',
         'active',
+        'visiblehome',
         'parent'
     ];
 

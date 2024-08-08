@@ -32,6 +32,7 @@ use Inertia\Inertia;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
 Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
 Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');

@@ -12,7 +12,6 @@ class ProductController extends Controller
 {
     public function index($category = null, $product = null)
     {
-
         if ($product != null) {
             $post = Post::with('categories')->where('slug', $product)->first();
             return Inertia::render('Site/Posts/index', ['posts' => $post]);
@@ -20,10 +19,19 @@ class ProductController extends Controller
         if ($category != null) {
             $category = Category::with('posts')->with('subCategories')->where('slug', $category)->first();
             return Inertia::render('Site/Categories/index', ['category' => $category]);
-        }else{
-            $category = Category::with('posts')->with('subCategories')->where('slug', 'produtos')->first();
-            return Inertia::render('Site/Categories/index', ['category' => $category]);
+        } else {
+            $category = Category::where('slug', 'produtos')->where('visiblehome', 0)->with('posts')->with('subCategories')->first();
+            $products = Post::where('type', 2)->get();
+            return Inertia::render('Site/Categories/index', ['category' => $category, 'products' => $products]);
         };
+    }
 
+    public function show($category)
+    {
+        $categoryposts = Category::with('posts')->with('subCategories')->where('slug', $category)->first();
+        $products = $categoryposts->posts;
+        $category = Category::where('slug', 'produtos')->where('visiblehome', 0)->with('posts')->with('subCategories')->first();
+        // dd($products);
+        return Inertia::render('Site/Categories/index', ['category' => $category, 'products' => $products, 'query' => true]);
     }
 }

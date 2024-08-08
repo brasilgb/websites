@@ -9,7 +9,7 @@ const ServiceContent = ({ data }: ServiceProps) => {
 
     return (
         <Link href={route("slug", data?.slug)}>
-            <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:scale-105 hover:shadow-lg">
+            <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:shadow-xl">
                 <img src={`/storage/uploads/${data?.featured}`}
                     alt="" className="w-full h-64 object-cover" />
                 <div className="p-2 md:p-4 flex flex-col">

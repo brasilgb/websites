@@ -13,7 +13,7 @@ const CategoriesGrid = ({ data }: ServiceProps) => {
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {data?.map((service: any, idx: number) => (
-                        <Link href={`${url}/${service?.slug}`}>
+                        <Link key={idx} href={`${url}/${service?.slug}`}>
                             <div className="relative bg-white shadow-md rounded-md overflow-hidden duration-500 hover:scale-105 hover:shadow-lg">
                                 <img src={`/storage/uploads/${service?.featured}`}
                                     alt="" className="w-full h-[250px] object-bottom object-fill"

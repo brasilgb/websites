@@ -75,10 +75,15 @@ class CategoryController extends Controller
             $fileName = time() . '.' . $request->featured->extension();
             $request->featured->move($storePath, $fileName);
         }
+        if ($request->hasfile('thumbnail')) {
+            $fileName = time() . '.' . $request->featured->extension();
+            $request->featured->move($storePath, $fileName);
+        }
 
         $data['parent'] = $request->parent;
         $data['slug'] = Str::slug($request->name);
         $data['featured'] = $request->hasfile('featured') ? $fileName : Null;
+        $data['thumbnail'] = $request->hasfile('thumbnail') ? $fileName : Null;
         Category::create($data);
         Session::flash('success', 'Categoria criada com sucesso!');
         return Redirect::route('categories.index');
@@ -139,9 +144,18 @@ class CategoryController extends Controller
             }
             $request->featured->move($storePath, $fileName);
         }
+        if ($request->hasfile('thumbnail')) {
+            $fileName = time() . '.' . $request->thumbnail->extension();
+            // dd($storePath . DIRECTORY_SEPARATOR . $category->thumbnail);
+            if ($category->thumbnail !== null && file_exists($storePath . DIRECTORY_SEPARATOR . $category->thumbnail)) {
+                unlink($storePath . DIRECTORY_SEPARATOR . $category->thumbnail);
+            }
+            $request->thumbnail->move($storePath, $fileName);
+        }
 
         $data['slug'] = Str::slug($request->name);
         $data['featured'] = $request->hasfile('featured') ? $fileName : $category->featured;
+        $data['thumbnail'] = $request->hasfile('thumbnail') ? $fileName : $category->thumbnail;
         $data['parent'] = $request->parent;
         $category->update($data);
         Session::flash('success', 'Categoria editada com sucesso!');

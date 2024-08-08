@@ -1,10 +1,8 @@
 import BrandGrid from "@/Components/site/BrandGrid";
 import CarouselSlide from "@/Components/site/CarouselSlide";
-import CategoriesGrid from "@/Components/site/CategoriesGrid";
 import HeroHome from "@/Components/site/HeroHome";
+import HomeCategoriesGrid from "@/Components/site/HomeCategoriesGrid";
 import ProductsGrid from "@/Components/site/ProductsGrid";
-import ServicesGrid from "@/Components/site/ServicesGrid";
-import SubCategoriesGrid from "@/Components/site/SubCategoriesGrid";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Head } from "@inertiajs/react";
 
@@ -44,7 +42,7 @@ const Home = ({ sections, categories }: any) => {
       </Head>
       {sections?.section1 && <HeroHome data={hero[0].posts} />}
       {sections?.section2 && <CarouselSlide data={slides[0].posts} />}
-      {sections?.section3 && <SubCategoriesGrid data={services[0].sub_categories} />}
+      {sections?.section3 && <HomeCategoriesGrid data={services[0].sub_categories} />}
       {sections?.section4 && <BrandGrid data={brands[0].posts} />}
       {sections?.section5 && <ProductsGrid data={products[0].posts} />}
     </GuestLayout>

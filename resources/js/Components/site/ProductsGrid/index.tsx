@@ -11,7 +11,9 @@ const ProductsGrid = ({ data }: ProductsProps) => {
             <div className='container mx-auto'>
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                     {data?.map((post: any, idx: number) => (
-                        <ProductContent product={post} />
+                        <div key={idx}>
+                            <ProductContent product={post} />
+                        </div>
                     ))}
                 </div>
             </div>
