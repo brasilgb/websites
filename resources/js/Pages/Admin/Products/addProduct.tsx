@@ -154,7 +154,7 @@ const addProduct = ({ categories }: any) => {
                     Descrição completa
                   </label>
                   <Editor
-                    apiKey="ne6rd1ax6mcgqbsu5351vgvzgijzg7tdeot8dxb8526lhtgy"
+                    apiKey="7sutxbbo4bpajl4d3vp8gajm3x9y26c1g6ruq3mngukohyb1"
                     onInit={(evt, editor: any) => (editorRef.current = editor)}
                     initialValue={data.content}
                     onChange={() =>
