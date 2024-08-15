@@ -92,8 +92,8 @@ class SettingsController extends Controller
         dd($data);
         $setting->update($data);
 
-        // Session::flash('success', 'Dados de configurações editado com sucesso!');
-        // return Redirect::route('settings.index');
+        Session::flash('success', 'Dados de configurações editado com sucesso!');
+        return Redirect::route('settings.index');
     }
 
     /**
