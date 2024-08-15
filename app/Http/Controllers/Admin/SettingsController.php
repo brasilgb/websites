@@ -80,16 +80,16 @@ class SettingsController extends Controller
     public function update(Request $request, Settings $setting)
     {
         $data = $request->all();
-        $storePath = public_path('storage/images');
-        if ($request->hasfile('logo')) {
-            $fileName = time() . '.' . $request->logo->extension();
-            $request->logo->move($storePath, $fileName);
-            if (file_exists($storePath . DIRECTORY_SEPARATOR . $setting->logo && $setting->logo)) {
-                unlink($storePath . DIRECTORY_SEPARATOR . $setting->logo);
-            }
-        }
-        $data['logo'] = $request->hasfile('logo') ? $fileName : $setting->logo;
-        dd($data);
+        // if ($request->hasfile('logo')) {
+        //     $storePath = public_path('storage/images');
+        //     $fileName = time() . '.' . $request->logo->extension();
+        //     $request->logo->move($storePath, $fileName);
+        //     if (file_exists($storePath . DIRECTORY_SEPARATOR . $setting->logo && $setting->logo)) {
+        //         unlink($storePath . DIRECTORY_SEPARATOR . $setting->logo);
+        //     }
+        // }
+        $data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
+        
         $setting->update($data);
 
         Session::flash('success', 'Dados de configurações editado com sucesso!');
