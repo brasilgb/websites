@@ -109,7 +109,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
           </div>
 
           {posts.slug === 'contatos' &&
-            <div className="px-6 py-12">
+            <div className="px-6 py-6">
               <div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 p-4 py-6 rounded-md shadow-md bg-gray-50 border-2 border-white md:p-8">
                   <div>
