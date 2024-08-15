@@ -70,9 +70,9 @@ const Settings = ({ setting }: any) => {
 
   function handleSubmit(e: any) {
     e.preventDefault();
-    router.post(`settings/${setting.id}`, {
+    router.post(route("settings.update", setting?.id), {
       _method: 'put',
-      logo: data.logo,
+      logo: data?.logo,
       title: data?.title,
       description: data?.description,
       state: data?.state,
