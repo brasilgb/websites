@@ -79,7 +79,6 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Settings $setting)
     {
-        dd('chegou');
         $data = $request->all();
         $storePath = public_path('storage/images');
         if ($request->hasfile('logo')) {
