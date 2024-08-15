@@ -88,7 +88,7 @@ class SettingsController extends Controller
         //         unlink($storePath . DIRECTORY_SEPARATOR . $setting->logo);
         //     }
         // }
-        $data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
+        // $data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
         dd($data);
         $setting->update($data);
 
