@@ -79,7 +79,7 @@ class SettingsController extends Controller
      */
     public function update(Request $request, Settings $setting)
     {
-        $data = $request->all();
+        //$data = $request->all();
         // if ($request->hasfile('logo')) {
         //     $storePath = public_path('storage/images');
         //     $fileName = time() . '.' . $request->logo->extension();
@@ -88,12 +88,16 @@ class SettingsController extends Controller
         //         unlink($storePath . DIRECTORY_SEPARATOR . $setting->logo);
         //     }
         // }
-        $data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
+        //$data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
         // dd($data);
-        $setting->update($data);
+        //$setting->update($data);
 
-        Session::flash('success', 'Dados de configurações editado com sucesso!');
+        //Session::flash('success', 'Dados de configurações editado com sucesso!');
         // return Redirect::route('settings.index');
+        $data = $request->all();
+        $setting->update($data);
+        Session::flash('success', 'Home do site editada com sucesso!');
+        return Redirect::route('setting.index');
     }
 
     /**
