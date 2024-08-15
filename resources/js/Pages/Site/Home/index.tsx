@@ -4,7 +4,6 @@ import HeroHome from "@/Components/site/HeroHome";
 import HomeCategoriesGrid from "@/Components/site/HomeCategoriesGrid";
 import ProductsGrid from "@/Components/site/ProductsGrid";
 import GuestLayout from "@/Layouts/GuestLayout";
-import { Head } from "@inertiajs/react";
 
 
 const Home = ({ sections, categories, products }: any) => {

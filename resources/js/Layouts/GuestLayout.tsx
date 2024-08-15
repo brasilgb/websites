@@ -17,7 +17,7 @@ const GuestLayout = ({ children }: GuestLayoutProps) => {
     return (
         <>
              <Head>
-                <title>{`${datasite?.config?.title} - ${datasite?.config?.metatitle}`}</title>
+                <title>{`${datasite?.config?.metatitle}`}</title>
                 <meta name="description" head-key="description" content={datasite?.config?.metadescription} />
                 <meta name="keywords" head-key="keywords" content={datasite?.config?.metakeyword} />
                 <link rel="icon" type="image/svg+xml" href={`/storage/images/${datasite?.config?.featured}`} />
