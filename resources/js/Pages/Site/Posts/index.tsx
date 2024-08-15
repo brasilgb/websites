@@ -160,7 +160,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
                 </div>
               </div>
               
-              <div className="md:h-96 h-40 p-2 rounded-md shadow-md border-2 bg-gray-50 border-white md:p-8 mt-6">
+              <div className="md:h-96 h-40 p-2 rounded-md shadow-md border-2 bg-gray-50 border-white md:p-4 mt-6">
                 {!isLoaded ? (
                   <h1>Loading...</h1>
                 ) : (
