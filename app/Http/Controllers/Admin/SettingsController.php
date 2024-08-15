@@ -89,7 +89,7 @@ class SettingsController extends Controller
         //     }
         // }
         $data['logo'] = $request->hasfile('logo') ? '$fileName' : $setting->logo;
-        dd($data);
+        // dd($data);
         $setting->update($data);
 
         Session::flash('success', 'Dados de configurações editado com sucesso!');
