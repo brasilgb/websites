@@ -93,7 +93,7 @@ class SettingsController extends Controller
         $setting->update($data);
 
         Session::flash('success', 'Dados de configurações editado com sucesso!');
-        return Redirect::route('settings.index');
+        // return Redirect::route('settings.index');
     }
 
     /**
