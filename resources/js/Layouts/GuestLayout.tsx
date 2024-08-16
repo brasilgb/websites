@@ -20,7 +20,7 @@ const GuestLayout = ({ children }: GuestLayoutProps) => {
                 <title>{`${datasite?.config?.metatitle}`}</title>
                 <meta name="description" head-key="description" content={datasite?.config?.metadescription} />
                 <meta name="keywords" head-key="keywords" content={datasite?.config?.metakeyword} />
-                <link rel="icon" type="image/svg+xml" href={`/storage/images/${datasite?.config?.featured}`} />
+                <link rel="icon" type="image/png" href="favicon.png" sizes="8x8" />
             </Head> 
             <main className="bg-gray-200 flex flex-col min-h-screen antialiased">
                 <ScrollToTop smooth component={<div className="bg-gradient-to-b from-gray-700 via-gray-600 to-gray-700 h-full flex items-center justify-center rounded shadow-md">

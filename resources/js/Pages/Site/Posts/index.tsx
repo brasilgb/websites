@@ -102,7 +102,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
 
       <section className="bg-white py-10">
         <div className='container mx-auto'>
-          <div className="px-4">
+          <div className="px-4 text-base text-gray-600">
             <HeaderSection title={posts.title} />
             {Parser().parse(posts?.summary)}
             <div dangerouslySetInnerHTML={{ __html: posts?.content }} />
