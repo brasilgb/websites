@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Site\HomeController;
 use App\Http\Controllers\Site\RedirectController;
@@ -30,15 +31,11 @@ use Inertia\Inertia;
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('customer')->middleware('auth')->group(function () {
+    Route::get('/', [CustomerController::class, 'index']);
+});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
-Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
-Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
-Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
-Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
-
-Route::prefix('admin')->middleware('auth')->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/categories', CategoryController::class);
     Route::resource('/posts', PostController::class);
@@ -51,5 +48,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
+Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
+Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
+Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
+Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
+
+
 
 require __DIR__ . '/auth.php';
