@@ -34,6 +34,7 @@ use Inertia\Inertia;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/clientes', [CustomerController::class, 'index'])->name('clientes')->middleware(['auth','customer']);
 Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
 Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
@@ -53,5 +54,4 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/clientes', [CustomerController::class, 'index'])->name('clientes')->middleware(['auth','customer']);
 require __DIR__ . '/auth.php';
