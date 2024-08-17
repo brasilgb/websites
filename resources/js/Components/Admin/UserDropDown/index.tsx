@@ -41,11 +41,11 @@ const UserDropDown = () => {
         >
           <Link
             className="text-gray-600 hover:text-gray-500 px-4 pb-3 flex items-center"
-            href={`/usuarios/${'auth.user.id'}`}
+            href={`/usuarios/${auth?.user?.id}`}
             onClick={toggle}
           >
             <IoPerson />
-            <span className="ml-1">{auth.user.name}</span>
+            <span className="ml-1">{auth?.user?.name}</span>
           </Link>
           <span className="w-full border-b border-gray-200"></span>
           <Link
