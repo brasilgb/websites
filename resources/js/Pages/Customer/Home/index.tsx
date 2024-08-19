@@ -1,4 +1,5 @@
 import CustomerLayout from "@/Layouts/CustomerLayout";
+import { usePage } from "@inertiajs/react";
 import React from 'react'
 import { IoBuild, IoConstruct, IoHomeSharp, IoPeople, IoPerson, IoPersonAddSharp, IoPersonSharp } from "react-icons/io5";
 
@@ -7,11 +8,12 @@ interface CustomerProps {
 }
 
 const HomeCustomer = ({ clientes }: CustomerProps) => {
+  const {auth} = usePage().props as any;
   return (
     <CustomerLayout>
       <main className="container m-auto">
         <div className="text-lg text-megb-red-primary font font-semibold py-6">
-          empresa
+          {auth?.user?.name}
         </div>
         {/* Botões de menus */}
         <div className="flex items-center justify-start gap-4">

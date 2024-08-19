@@ -18,7 +18,7 @@ class Customer
     {
         if (Auth::user()->roles != 'admin' || Auth::user()->roles != 'user') {
             // dd(Auth::user()->roles);
-            return redirect(route('home'));
+            return redirect(route('clientes'));
         }
         return $next($request);
     }

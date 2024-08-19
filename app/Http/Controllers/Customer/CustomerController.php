@@ -13,7 +13,6 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        
         return Inertia::render('Customer/Home/index',['clientes' => 'blá']);
     }
 

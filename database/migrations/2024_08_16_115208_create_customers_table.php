@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            // $table->();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('password')->default('12345678');
             $table->timestamps();
         });
     }

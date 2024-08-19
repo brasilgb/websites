@@ -3,11 +3,14 @@ import Checkbox from '@/Components/Checkbox';
 import InputError from '@/Components/InputError';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import AuthLayout from "@/Layouts/AuthLayout";
 import { IoAtOutline, IoEyeOffOutline, IoEyeOutline, IoLockClosedOutline } from "react-icons/io5";
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
+    const {props} = usePage();
+    console.log(props);
+    
     const[showPassword, setShowPassword] = useState<boolean>(false);
     const { data, setData, post, processing, errors, reset } = useForm({
         email: '',

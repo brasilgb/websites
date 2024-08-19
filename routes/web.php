@@ -48,10 +48,10 @@ Route::prefix('admin')->middleware(['auth', 'customer'])->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/clientes', [CustomerController::class, 'index'])->name('clientes')->middleware(['auth']);
 Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
 Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
 Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
+Route::get('/clientes', [CustomerController::class, 'index'])->name('clientes')->middleware(['auth']);
 require __DIR__ . '/auth.php';

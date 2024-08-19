@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('name');
             $table->string('username')->nullable();
+            $table->string('cpf')->nullable();
             $table->string('email')->unique();
-            $table->integer('status');
+            $table->integer('status')->default(1);
             $table->integer('roles')->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
