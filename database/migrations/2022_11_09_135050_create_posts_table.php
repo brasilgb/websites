@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('summary')->nullable();
             $table->text('content')->nullable();
             $table->string('featured');
-            $table->string('prodfeatured');
+            $table->string('prodfeatured')->nullable();
             $table->integer('social');
             $table->integer('active');
             $table->integer('menu');

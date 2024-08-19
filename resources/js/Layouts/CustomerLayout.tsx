@@ -19,7 +19,7 @@ const CustomerLayout = ({ children }: CustomerLayoutProps) => {
     return (
         <>
              <Head>
-                <title>OK </title>
+                {/* <title>OK </title> */}
                 {/* <meta name="description" head-key="description" content={datasite?.config?.metadescription} />
                 <meta name="keywords" head-key="keywords" content={datasite?.config?.metakeyword} />
                 <link rel="icon" type="image/png" href="favicon.png" sizes="8x8" /> */}

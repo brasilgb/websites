@@ -18,7 +18,7 @@ class Customer
     {
         if(Auth::user()->roles != 'customer' )
         {
-            return redirect(route('dashboard'));
+            return redirect(route('clientes'));
         }
         return $next($request);
     }
