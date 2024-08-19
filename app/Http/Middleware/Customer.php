@@ -16,9 +16,9 @@ class Customer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::user()->roles != 'customer' )
-        {
-            return redirect(route('clientes'));
+        if (Auth::user()->roles != 'admin' || Auth::user()->roles != 'user') {
+            // dd(Auth::user()->roles);
+            return redirect(route('home'));
         }
         return $next($request);
     }

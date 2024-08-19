@@ -47,7 +47,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                         onChange={(e) => setData('email', e.target.value)}
                         placeholder="E-mail"
                     />
-
                     <InputError message={errors.email} className="mt-2" />
                 </div>
 
@@ -77,16 +76,14 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                             checked={data.remember}
                             onChange={(e) => setData('remember', e.target.checked)}
                         />
-                        <span className="ms-2 text-sm text-gray-600">Lembrar</span>
+                        <span className="ms-2 text-sm text-gray-200">Lembrar</span>
                     </label>
-                    {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="underline text-sm text-gray-200 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             Perdeu sua senha?
                         </Link>
-                    )}
                 </div>
 
                 <div className="flex items-center justify-center mt-4">

@@ -15,7 +15,7 @@ export default {
                 roboto: ['Roboto', 'sans-serif'],
               },
               colors: {
-                "megb-blue-login": "#008ECC",
+                "megb-blue-login": "#D1D5DB",
                 "megb-blue-plus": "#2E3247",
                 "megb-blue-primary": "#0C356A",
                 "megb-blue-secundary": "#0F52BA",
