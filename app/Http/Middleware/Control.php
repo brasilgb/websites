@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Customer
+class Control
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class Customer
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->roles === 'admin' || Auth::user()->roles === 'user') {
-            return redirect(route('dashboard'));
+        if (Auth::user()->roles === 'customer') {
+            return redirect(route('clientes'));
         }
         return $next($request);
     }
