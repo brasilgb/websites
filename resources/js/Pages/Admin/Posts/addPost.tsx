@@ -27,6 +27,7 @@ interface PageProps {
   featured: any;
   active: boolean;
   social: boolean;
+  url: string;
   linked: boolean;
   type: number;
 }
@@ -52,6 +53,7 @@ const addPost = ({ categories }: any) => {
     featured: null,
     active: false,
     social: false,
+    url: '',
     linked: false,
     type: 1,
   });
@@ -191,6 +193,22 @@ const addPost = ({ categories }: any) => {
                   />
                   {errors.category_id && (
                     <div className="text-red-500">{errors.category_id}</div>
+                  )}
+                </div>
+
+                <div className="flex flex-col mt-4">
+                  <label className="label-form" htmlFor="url">
+                    URL externa
+                  </label>
+                  <input
+                    id="url"
+                    type="text"
+                    value={data.url}
+                    onChange={e => setData('url', e.target.value)}
+                    className="input-form"
+                  />
+                  {errors.url && (
+                    <div className="text-red-500">{errors.url}</div>
                   )}
                 </div>
 

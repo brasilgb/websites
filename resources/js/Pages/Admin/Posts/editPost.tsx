@@ -28,6 +28,7 @@ interface PostProps {
   featured: any;
   active: boolean;
   social: boolean;
+  url: string;
   linked: boolean;
   type: number;
 }
@@ -59,6 +60,7 @@ const editPost = ({ post, categories, postCategory }: any) => {
     featured: post.featured,
     active: post.active,
     social: post.social,
+    url: post.url,
     linked: post.linked,
     type: post.type,
   });
@@ -74,6 +76,7 @@ const editPost = ({ post, categories, postCategory }: any) => {
       featured: data.featured,
       active: data.active,
       social: data.social,
+      url: data.url,
       linked: data.linked,
       type: data.type,
     });
@@ -212,6 +215,23 @@ const editPost = ({ post, categories, postCategory }: any) => {
                     <div className="text-red-500">{errors.category_id}</div>
                   )}
                 </div>
+                
+                <div className="flex flex-col mt-4">
+                  <label className="label-form" htmlFor="url">
+                    URL externa
+                  </label>
+                  <input
+                    id="url"
+                    type="text"
+                    value={data.url}
+                    onChange={e => setData('url', e.target.value)}
+                    className="input-form"
+                  />
+                  {errors.url && (
+                    <div className="text-red-500">{errors.url}</div>
+                  )}
+                </div>
+
                 <div className="flex items-center mt-4">
                   <input
                     type="checkbox"

@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('prodfeatured')->nullable();
             $table->integer('social');
             $table->integer('active');
-            $table->integer('menu');
+            $table->string('url')->nullable();
+            $table->integer('menu')->nullable();
             $table->integer('type');
             $table->decimal('valnormal', 6, 2)->nullable();
             $table->decimal('valpromo', 6, 2)->nullable();

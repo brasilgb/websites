@@ -1,6 +1,7 @@
 const roleUser = [
     { value: 'admin', label: "Administrador" },
     { value: 'user', label: "Usuário" },
+    { value: 'customer', label: "Customer" },
 ];
 
 const statusUser = [
