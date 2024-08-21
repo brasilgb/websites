@@ -11,21 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
-            $table->string('cpf')->nullable();
-            $table->string('password')->default('12345678');
+        Schema::create('orders', function (Blueprint $table) {
+            $table->unsignedBigInteger('id');
+            $table->string('detalhes')->nullable();
+            $table->string('orcamento')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
 
     /**
+     *
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('orders');
     }
 };

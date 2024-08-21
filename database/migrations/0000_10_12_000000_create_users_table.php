@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('username')->nullable();
             $table->string('cpf')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->integer('status')->default(1);
             $table->string('roles')->default('user');
             $table->timestamp('email_verified_at')->nullable();
