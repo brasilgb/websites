@@ -9,7 +9,7 @@ const Actions = () => {
       href={route("clientes")}
     >
       <IoPerson className="text-slate-100/60"/>
-      <span className="text-sm drop-shadow font-semibold text-slate-50/80">Área do cliente</span>
+      {/* <span className="text-sm drop-shadow font-semibold text-slate-50/80">Área do cliente</span> */}
     </Link>
   )
 }
