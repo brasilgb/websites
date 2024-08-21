@@ -17,6 +17,7 @@ type Props = {
 }
 
 const CarouselSlide = (props: Props) => {
+  console.log(props.data);
 
   return (
     <div className="bg-gray-100 py-4">
@@ -40,11 +41,19 @@ const CarouselSlide = (props: Props) => {
         >
           {props.data?.map((image: any, idx: number) => (
             <SwiperSlide>
-              <Link
-                href={route('slug', image.slug)}
-              >
-                <img className="w-full h-full object-fill block rounded" src={`storage/uploads/${image.featured}`} width={600} />
-              </Link>
+              {image.url
+                ? <a
+                  target="_blank"
+                  href={image.url}
+                >
+                  <img className="w-full h-full object-fill block rounded" src={`storage/uploads/${image.featured}`} width={600} />
+                </a>
+                : <Link
+                  href={route('slug', image.slug)}
+                >
+                  <img className="w-full h-full object-fill block rounded" src={`storage/uploads/${image.featured}`} width={600} />
+                </Link>
+              }
             </SwiperSlide>
           ))}
 

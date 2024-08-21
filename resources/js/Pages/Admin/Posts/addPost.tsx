@@ -205,7 +205,8 @@ const addPost = ({ categories }: any) => {
                     type="text"
                     value={data.url}
                     onChange={e => setData('url', e.target.value)}
-                    className="input-form"
+                    className="input-form placeholder:text-gray-400"
+                    placeholder="https://minhaurl.com.br"
                   />
                   {errors.url && (
                     <div className="text-red-500">{errors.url}</div>

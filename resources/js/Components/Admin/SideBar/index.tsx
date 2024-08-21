@@ -22,7 +22,6 @@ const SideBar = () => {
                 <div className={`${openSide ? 'w-20' : 'w-10'}`}>
                     <ApplicationLogo />
                 </div>
-
             </div>
             <ul className='mt-12 flex flex-col gap-2'>
                 <SideLink
@@ -32,6 +31,7 @@ const SideBar = () => {
                     active={route().current('dashboard')}
                     label="Dashboard"
                 />
+
                 <SideLink
                     url={route('pages.index')}
                     icon={<IoDocumentSharp size={24} />}
@@ -52,7 +52,7 @@ const SideBar = () => {
                     url={route('posts.index')}
                     icon={<IoDocumentTextSharp size={24} />}
                     openSide={openSide}
-                    active={route().current('posts.index')}
+                    active={route().current('posts.*')}
                     label="Postagens"
                 />
 

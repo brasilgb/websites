@@ -16,6 +16,7 @@ class Post extends Model
         'summary', //resumo de conteúdo
         'content', //conteúdo da postagem
         'featured', //imagem destaque
+        'url', //link url imagem slide
         'prodfeatured',// produto em destaque
         'valnormal', // valor do produto
         'valpromo', // valor promoção
