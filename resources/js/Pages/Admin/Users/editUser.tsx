@@ -25,7 +25,7 @@ const EditUser = ({ user }: any) => {
     const [showPassword, setShowPassword] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
     const { flash } = usePage().props;
-
+    
     const {
         data,
         setData,
