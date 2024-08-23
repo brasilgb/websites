@@ -11,8 +11,13 @@ class Order extends Model
 
     protected $fillable = [
         "id",
+        "cliente_id",
         "detalhes",
         "orcamento",
         "status"
     ];
+
+    // protected function orders() {
+    //     return 
+    // }
 }

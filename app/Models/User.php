@@ -17,6 +17,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        "cliente_id",
         'name',
         'email',
         'cpf',
@@ -46,5 +47,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function orders() {
+        return $this->hasMany(Order::class, 'cliente_id', 'cliente_id');
     }
 }

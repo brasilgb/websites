@@ -24,17 +24,13 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $settings = Settings::first();
-
-        if (Auth::user()->role === 1) {
-            $query = User::where('id', Auth::user()->id);
+        $search = $request->get('q');
+        if (Auth::user()->roles === 'admin') {
+            $query = User::where('roles', 'admin')->where('id', Auth::user()->id);
         } else {
-            $search = $request->get('q');
-
-            $query = User::orderBy('id', 'desc');
-
+            $query = User::where('roles', '<>', 'customer')->orderBy('id', 'desc');
             if ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
+                $query->where('roles', '<>', 'customer')->where('name', 'like', '%' . $search . '%');
             }
         }
         $users = $query->paginate(10);

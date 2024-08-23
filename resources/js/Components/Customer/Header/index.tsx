@@ -12,9 +12,9 @@ const HeaderCustomer = (props: Props) => {
     };
 
     return (
-        <header className="h-16 bg-gray-50 drop-shadow-sm">
+        <header className="h-16 bg-gray-50 drop-shadow-sm px-2">
             <div className="container m-auto h-full flex items-center justify-between">
-                <div className="h-full w-20">
+                <div className="w-20">
                     <img src="/storage/images/default.png" alt="" />
                 </div>
                 <div>

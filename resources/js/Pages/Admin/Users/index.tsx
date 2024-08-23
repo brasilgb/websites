@@ -7,11 +7,12 @@ import { BreadCrumbTop, HeaderContent, TitleTop } from "@/Components/Admin/PageT
 import Pagination from "@/Components/Admin/Pagination";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/Components/Admin/Table";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { roleUserByValue, statusUserByValue } from "@/Utils/functions";
+import { activePostByValue, roleUserByValue, statusUserByValue } from "@/Utils/functions";
 import { Head, usePage } from "@inertiajs/react";
 import moment from "moment";
 import React, { Fragment } from "react";
 import { IoPerson } from "react-icons/io5";
+import { colorActive } from "../colorActive";
 
 const Users = ({ users }: any) => {
     const { flash } = usePage().props;
@@ -51,7 +52,7 @@ const Users = ({ users }: any) => {
                                     <TableHead>Nome</TableHead>
                                     <TableHead>Telefone</TableHead>
                                     <TableHead>Função</TableHead>
-                                    <TableHead>Status</TableHead>
+                                    <TableHead>Ativo</TableHead>
                                     <TableHead>Cadastro</TableHead>
                                     <TableHead></TableHead>
                                 </TableRow>
@@ -68,13 +69,9 @@ const Users = ({ users }: any) => {
                                                 {usuario.telefone}
                                             </TableCell>
                                             <TableCell>
-                                                {roleUserByValue(usuario.role)}
+                                                {roleUserByValue(usuario.roles)}
                                             </TableCell>
-                                            <TableCell>
-                                                {statusUserByValue(
-                                                    usuario.status,
-                                                )}
-                                            </TableCell>
+                                            <TableCell><div className={`flex items-center justify-center rounded-full w-8 h-8 shadow text-xs font-semibold drop-shadow-md uppercase ${colorActive(usuario.status)}`}>{statusUserByValue(usuario.status)}</div></TableCell>
                                             <TableCell>
                                                 {moment(
                                                     usuario.created_at,

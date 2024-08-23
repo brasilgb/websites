@@ -18,6 +18,7 @@ class ApiCustomerController extends Controller
                     'cpf' => $cliente['cpf']
                 ],
                 [
+                    'cliente_id' => $cliente['id'],
                     'name' => $cliente['nome'],
                     'email' => $cliente['email'],
                     'password' => 12345,

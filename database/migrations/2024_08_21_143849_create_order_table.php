@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('id');
+            $table->unsignedBigInteger('id')->unique()->index();
+            $table->string('cliente_id')->nullable();
             $table->string('detalhes')->nullable();
             $table->string('orcamento')->nullable();
             $table->string('status')->nullable();
