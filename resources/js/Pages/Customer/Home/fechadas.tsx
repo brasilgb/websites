@@ -1,3 +1,4 @@
+import { statusOrdemByValue } from '@/Utils/functions';
 import React from 'react'
 
 interface FechadasProps {
@@ -5,6 +6,28 @@ interface FechadasProps {
 }
 
 const Fechadas = ({ data }: FechadasProps) => {
+
+    const stylesOrderStatus = (value: any) => {
+        switch (value) {
+            case 1:
+                return "bg-rose-600/80 border border-gray-300 text-gray-50 text-xs uppercase";;
+            case 2:
+                return "bg-cyan-600/50 border border-cyan-600 text-cyan-800 text-xs uppercase";
+            case 3:
+                return "bg-orange-600/50 border border-orange-600 text-orange-800 text-xs uppercase";
+            case 4:
+                return "bg-sky-600/50 border border-sky-600 text-sky-800 text-xs uppercase";
+            case 5:
+                return "bg-red-600/50 border border-red-600 text-red-800 text-xs uppercase";
+            case 6:
+                return "bg-green-600/50 border border-green-600 text-green-800 text-xs uppercase";
+            case 7:
+                return "bg-green-600/50 border border-green-600 text-green-800 text-xs uppercase";
+            case 8:
+                return "bg-blue-600/50 border border-blue-600 text-blue-800 text-xs uppercase";
+        }
+    };
+
     return (
         <>
             <div className="p-2">
@@ -26,7 +49,7 @@ const Fechadas = ({ data }: FechadasProps) => {
                                 <td className="px-2 py-1">{order.id}</td>
                                 <td className="px-2 py-1">{order.detalhes}</td>
                                 <td className="px-2 py-1">{order.orcamento}</td>
-                                <td className="px-2 py-1">{order.status}</td>
+                                <td className="px-2 py-1"><span className={`px-3 py-1 rounded-full font-semibold drop-shadow-md ${stylesOrderStatus(parseInt(order?.status))}`}>{statusOrdemByValue(parseInt(order?.status))}</span></td>
                             </tr>
                         ))}
                     </tbody>
