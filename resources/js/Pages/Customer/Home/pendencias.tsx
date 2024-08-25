@@ -38,7 +38,7 @@ const Pendencias = ({ data }: PendenciasProps) => {
                     <thead>
                         <tr className="text-left bg-slate-200 md:text-base text-sm text-gray-600">
                             <th className="px-2 py-1">Ordem</th>
-                            <th className="px-2 py-1">Detalhes do Serviço</th>
+                            <th className="px-2 py-1">Defeito</th>
                             <th className="px-2 py-1">Orçamento</th>
                             <th className="px-2 py-1">Status</th>
                         </tr>
@@ -47,7 +47,7 @@ const Pendencias = ({ data }: PendenciasProps) => {
                         {data?.orders?.filter((fl: any) => (fl.status != 8)).map((order: any, idx: number) => (
                             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-slate-100 text-gray-600' : 'text-gray-500'}`}>
                                 <td className="px-2 py-1">{order.id}</td>
-                                <td className="px-2 py-1">{order.detalhes}</td>
+                                <td className="px-2 py-1">{order.defeito}</td>
                                 <td className="px-2 py-1">{order.orcamento}</td>
                                 <td className="py-1"><span className={`px-3 py-1 rounded-full font-semibold drop-shadow-md ${stylesOrderStatus(parseInt(order?.status))}`}>{statusOrdemByValue(parseInt(order?.status))}</span></td>
                             </tr>

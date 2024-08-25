@@ -20,7 +20,8 @@ class ApiOrderController extends Controller
                 [
                     "cliente_id" => $ordem['cliente_id'],
                     "detalhes" => $ordem['detalhes'],
-                    "orcamento" => $ordem['orcamento'],
+                    "defeito" => $ordem['defeito'],
+                    "orcamento" => $ordem['descorcamento'],
                     "status" => $ordem['status']
                 ]
             );
