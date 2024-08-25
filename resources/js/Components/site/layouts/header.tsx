@@ -23,7 +23,7 @@ const HeaderLayout = ({ data }: HeaderProps) => {
                 <div className="container h-16 md:px-0 px-6 md:mx-auto flex flex-row items-center justify-start">
                     <div className="mr-8 w-18">
                         <Link href={route('home')}>
-                            <div className="md:w-28 w-28">
+                            <div className="md:w-16 w-14">
                                 <ApplicationLogo className="" />
                             </div>
                         </Link>
