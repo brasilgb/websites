@@ -12,20 +12,22 @@ class ApiCustomerController extends Controller
     public function store(Request $request)
     {
         $data = $request->clientes;
-        foreach ($data as $cliente) {
-            User::updateOrCreate(
-                [
-                    'cpf' => $cliente['cpf']
-                ],
-                [
-                    'cliente_id' => $cliente['id'],
-                    'name' => $cliente['nome'],
-                    'email' => $cliente['email'],
-                    'password' => 12345,
-                    "status" => 1,
-                    "roles" => "customer"
-                ]
-            );
+        foreach (array_chunk($data,500) as $chunk) {
+            foreach ($chunk as $cliente) {
+                User::updateOrCreate(
+                    [
+                        'cpf' => $cliente['cpf']
+                    ],
+                    [
+                        'cliente_id' => $cliente['id'],
+                        'name' => $cliente['nome'],
+                        'email' => $cliente['email'],
+                        'password' => 12345,
+                        "status" => 1,
+                        "roles" => "customer"
+                    ]
+                );
+            }
         }
         return response()->json([
             "response" => [
