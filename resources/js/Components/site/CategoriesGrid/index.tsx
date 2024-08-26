@@ -28,7 +28,7 @@ const CategoriesGrid = ({ data }: ServiceProps) => {
                                         <div className='flex flex-col flex-1 flex-grow pb-6'>
                                             <h3 className="text-base font-bold text-blue-900/80 uppercase mb-2">{service?.title}</h3>
                                             <p className="text-gray-700 mb-4 two-lines">
-                                                {service?.description}Efetuamos sua troca de tela comprodutos originais
+                                                {service?.summary}
                                             </p>
                                         </div>
                                         <a
