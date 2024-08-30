@@ -13,7 +13,14 @@ class Order extends Model
         "id",
         "cliente_id",
         "detalhes",
-        "orcamento",
+        "defeito",
+        "descorcamento",
+        "valorcamento",
+        "custo",
+        "valservico",
+        "valpecas",
+        "dtentrada",
+        "dtentrega",
         "status"
     ];
 
