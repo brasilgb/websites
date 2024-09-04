@@ -2,15 +2,19 @@ import React from 'react'
 import { FaPhoneFlip } from 'react-icons/fa6'
 import { IoLogoInstagram, IoLogoWhatsapp, IoMail } from 'react-icons/io5'
 import { PiMapPinFill } from 'react-icons/pi'
+import Actions from "../Actions";
 
 interface AddressProps {
     data: any;
 }
 
 const AddressLink = ({ data }: AddressProps) => {
-   
+
     return (
         <div className="md:container md:mx-auto md:h-12 flex md:flex-row flex-col md:items-center justify-between">
+            <div className="py-4 mx-4">
+                <Actions />
+            </div>
             <div className="flex-1 flex md:flex-row flex-col flex-start justify-between md:gap-8 gap-2 md:mx-0 mx-4">
                 <div className="flex">
                     <PiMapPinFill size={18} className='text-blue-500' />

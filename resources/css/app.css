@@ -10,6 +10,9 @@
     h5 {
         @apply text-3xl
     }
+    p {
+        @apply mb-4 bg-red-700
+    }
 }
 
 @layer components {
