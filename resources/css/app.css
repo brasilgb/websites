@@ -10,9 +10,6 @@
     h5 {
         @apply text-3xl
     }
-    p {
-        @apply mb-4 bg-red-700
-    }
 }
 
 @layer components {
@@ -24,6 +21,15 @@
     }
     .input-form {
         @apply rounded-md p-2 bg-transparent text-base text-gray-600 border border-gray-300;
+    }
+    .styles-timynce > p {
+        @apply text-base leading-6 my-4
+    }
+    .styles-timynce > h1 {
+        @apply text-2xl leading-6 my-4
+    }
+    .styles-timynce > h2 {
+        @apply text-xl leading-6 my-4
     }
 }
 

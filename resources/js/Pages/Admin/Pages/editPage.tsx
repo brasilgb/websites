@@ -141,7 +141,7 @@ const editPage = ({ page }: any) => {
                       plugins:
                         'autolink lists link charmap print preview anchor image',
                       toolbar:
-                        'undo redo link bold italic image alignleft aligncenter alignright alignjustify  bullist numlist outdent indent',
+                        'undo redo h1 h2 forecolor link bold italic image alignleft aligncenter alignright alignjustify  bullist numlist outdent indent',
                     }}
                   />
                   {errors.content && (

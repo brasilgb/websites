@@ -12,7 +12,7 @@ const AddressLink = ({ data }: AddressProps) => {
 
     return (
         <div className="md:container md:mx-auto md:h-12 flex md:flex-row flex-col md:items-center justify-between">
-            <div className="py-4 mx-4">
+            <div className="py-4 mx-4 md:hidden">
                 <Actions />
             </div>
             <div className="flex-1 flex md:flex-row flex-col flex-start justify-between md:gap-8 gap-2 md:mx-0 mx-4">

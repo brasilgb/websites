@@ -104,8 +104,8 @@ const Posts = ({ posts, imagefeatured }: any) => {
         <div className='container mx-auto'>
           <div className="px-4 text-base text-gray-600">
             <HeaderSection title={posts.title} />
-            {Parser().parse(posts?.summary)}
-            <div dangerouslySetInnerHTML={{ __html: posts?.content }} />
+            {/* {Parser().parse(posts?.summary)} */}
+            <div className="styles-timynce" dangerouslySetInnerHTML={{ __html: posts?.content }} />
           </div>
 
           {posts.slug === 'contatos' &&
@@ -159,7 +159,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
                   <ContactsForm />
                 </div>
               </div>
-              
+
               <div className="md:h-96 h-40 p-2 rounded-md shadow-md border-2 bg-gray-50 border-white md:p-4 mt-6">
                 {!isLoaded ? (
                   <h1>Loading...</h1>
