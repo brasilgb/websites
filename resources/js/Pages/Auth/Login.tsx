@@ -5,15 +5,14 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm, usePage } from '@inertiajs/react';
 import AuthLayout from "@/Layouts/AuthLayout";
-import { IoAtOutline, IoEyeOffOutline, IoEyeOutline, IoLockClosedOutline } from "react-icons/io5";
+import { IoAtOutline, IoEyeOffOutline, IoEyeOutline, IoLockClosedOutline, IoPerson } from "react-icons/io5";
 
 export default function Login({ status, canResetPassword }: { status?: string, canResetPassword: boolean }) {
     const {props} = usePage();
-    console.log(props);
     
     const[showPassword, setShowPassword] = useState<boolean>(false);
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
+        customerauth: '',
         password: '',
         remember: false,
     });
@@ -38,19 +37,18 @@ export default function Login({ status, canResetPassword }: { status?: string, c
 
             <form onSubmit={submit}>
                 <div className="relative">
-                    <IoAtOutline size={22} className="absolute top-2.5 left-1 text-gray-400" />
+                    <IoPerson size={22} className="absolute top-2.5 left-1 text-gray-400" />
                     <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
+                        id="customerauth"
+                        type="customerauth"
+                        name="customerauth"
+                        value={data.customerauth}
                         className="mt-1 pl-8 block w-full text-sm p-2.5"
-                        autoComplete="username"
                         isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
-                        placeholder="E-mail"
+                        onChange={(e) => setData('customerauth', e.target.value)}
+                        placeholder="E-mail ou CPF"
                     />
-                    <InputError message={errors.email} className="mt-2" />
+                    <InputError message={errors.customerauth} className="mt-2" />
                 </div>
 
                 <div className="mt-6 relative">

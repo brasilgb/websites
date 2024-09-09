@@ -205,6 +205,7 @@ return [
         'time'      => 'hora',
         'title'     => 'título',
         'username'  => 'usuário',
+        'customerauth'  => 'usuário',
         'year'      => 'ano',
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',

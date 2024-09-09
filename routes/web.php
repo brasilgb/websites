@@ -50,10 +50,10 @@ Route::prefix('admin')->middleware(['auth', 'control'])->group(function () {
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/clientes', [CustomerController::class, 'index'])->name('clientes')->middleware(['auth', 'customer']);
 Route::put('/alterpassword/{user}', [CustomerController::class, 'update'])->name('alterpassword');
+require __DIR__ . '/auth.php';
 
 Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
 Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
 Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');
-require __DIR__ . '/auth.php';

@@ -27,7 +27,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
+            // 'email' => ['required', 'string', 'email'],
+            'customerauth' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
     }
@@ -41,11 +42,26 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
-            RateLimiter::hit($this->throttleKey());
+        $customerauth_type = filter_var($this->input('customerauth'), FILTER_VALIDATE_EMAIL)
+            ? 'email'
+            : 'cpf';
 
+        $this->merge([
+            $customerauth_type => $this->input('customerauth')
+        ]);
+
+        // if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        //     RateLimiter::hit($this->throttleKey());
+
+        //     throw ValidationException::withMessages([
+        //         'email' => trans('auth.failed'),
+        //     ]);
+        // }
+        if (! Auth::attempt($this->only($customerauth_type, 'password'), $this->boolean('remember'))) { 
+            RateLimiter::hit($this->throttleKey());
+     
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'customerauth' => trans('auth.failed'), 
             ]);
         }
 
@@ -80,6 +96,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::transliterate(Str::lower($this->string('email')).'|'.$this->ip());
+        return Str::transliterate(Str::lower($this->string('email')) . '|' . $this->ip());
     }
 }
