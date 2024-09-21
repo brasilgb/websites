@@ -14,7 +14,6 @@ interface CustomerProps {
 const HomeCustomer = ({ clientes }: CustomerProps) => {
   const { auth } = usePage().props as any;
   const [alterServices, setAlterServices] = useState('pendencias');
-console.log(clientes);
 
   return (
     <CustomerLayout>

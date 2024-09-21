@@ -14,6 +14,7 @@ import {
   TitleTop,
 } from '@/Components/Admin/PageTop';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import { maskMoney, maskMoneyDot, unMask } from '@/Utils';
 import { router, useForm, usePage } from '@inertiajs/react';
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useRef } from 'react';
@@ -81,8 +82,8 @@ const editProduct = ({ product, categories, productCategory }: any) => {
       content: data.content,
       category_id: data.category_id,
       featured: data.featured,
-      valnormal: data.valnormal,
-      valpromo: data.valpromo,
+      valnormal: maskMoneyDot(data.valnormal),
+      valpromo: maskMoneyDot(data.valpromo),
       prodfeatured: data.prodfeatured,
       active: data.active,
       social: data.social,
@@ -250,7 +251,7 @@ const editProduct = ({ product, categories, productCategory }: any) => {
                     <input
                       id="valnormal"
                       type="text"
-                      value={data.valnormal}
+                      value={maskMoney(data.valnormal)}
                       onChange={e => setData('valnormal', e.target.value)}
                       className="input-form"
                     />
@@ -265,7 +266,7 @@ const editProduct = ({ product, categories, productCategory }: any) => {
                     <input
                       id="valpromo"
                       type="text"
-                      value={data.valpromo}
+                      value={maskMoney(data.valpromo)}
                       onChange={e => setData('valpromo', e.target.value)}
                       className="input-form"
                     />

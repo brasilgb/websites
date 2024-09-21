@@ -18,6 +18,7 @@ import React, { useEffect, useRef } from 'react';
 import { IoBasketSharp } from 'react-icons/io5';
 import { Editor } from '@tinymce/tinymce-react';
 import Select from 'react-select';
+import { maskMoney, maskMoneyDot, unMask } from '@/Utils';
 
 interface PageProps {
   brand: string;
@@ -66,6 +67,8 @@ const addProduct = ({ categories }: any) => {
 
   function handleSubmit(e: any) {
     e.preventDefault();
+    setData((data: any) => ({ ...data, valnormal: maskMoneyDot(data.valnormal) }));
+    setData((data: any) => ({ ...data, valpromo: maskMoneyDot(data.valpromo) }));
     post(route('products.store'));
   }
 
@@ -183,7 +186,7 @@ const addProduct = ({ categories }: any) => {
                   <input
                     id="featured"
                     type="file"
-                    onChange={(e:any) => setData('featured', e.target.files[0])}
+                    onChange={(e: any) => setData('featured', e.target.files[0])}
                     className="block w-full text-base text-gray-600
                                             file:mr-4 file:py-2.5 file:px-4 file:rounded-l-md
                                             file:border-0 file:text-sm file:font-semibold
@@ -225,7 +228,7 @@ const addProduct = ({ categories }: any) => {
                     <input
                       id="valnormal"
                       type="text"
-                      value={data.valnormal}
+                      value={maskMoney(data.valnormal)}
                       onChange={e => setData('valnormal', e.target.value)}
                       className="input-form"
                     />
@@ -240,7 +243,7 @@ const addProduct = ({ categories }: any) => {
                     <input
                       id="valpromo"
                       type="text"
-                      value={data.valpromo}
+                      value={maskMoney(data.valpromo)}
                       onChange={e => setData('valpromo', e.target.value)}
                       className="input-form"
                     />

@@ -35,11 +35,11 @@ const Fechadas = ({ data }: FechadasProps) => {
             <div className="p-2">
                 <h1 className="text-base font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço entregues</h1>
             </div>
-            <div className="w-full px-2 pb-2 overflow-x-auto">
-                <table className="table whitespace-nowrap w-full">
+            <div className="w-full px-2 pb-2 overflow-x-auto max-h-[650px]">
+                <table className="table-fixed w-full">
                     <thead>
                         <tr className="text-left bg-slate-200 md:text-base text-sm text-gray-600">
-                            <th className="px-2 py-1">N° OS</th>
+                            <th className="px-2 py-1 w-20">N° OS</th>
                             <th className="px-2 py-1">Defeito</th>
                             <th className="px-2 py-1">Desc. Orçamento</th>
                             <th className="px-2 py-1">Val. Orçamento</th>
@@ -53,14 +53,14 @@ const Fechadas = ({ data }: FechadasProps) => {
                     <tbody>
                         {data?.orders?.filter((fl: any) => (fl.status == 8)).map((order: any, idx: number) => (
                             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-slate-100 text-gray-600' : 'text-gray-500'}`}>
-                                <td className="px-2 py-1">{order.id}</td>
-                                <td className="px-2 py-1">{order.defeito}</td>
-                                <td className="px-2 py-1">{order.descorcamento}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order.valorcamento ? order.valorcamento : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order.vaservico ? order.vaservico : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order.valpecas ? order.valpecas : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order.custo ? order.custo : '0.00')}</td>
-                                <td className="px-2 py-1">{order.dtentrega ? moment(order.dtentrega).format("DD/MM/YYYY") : ''}</td>
+                                <td className="px-2 py-1">{order?.id}</td>
+                                <td className="px-2 py-1">{order?.defeito}</td>
+                                <td className="px-2 py-1">{order?.descorcamento}</td>
+                                <td className="px-2 py-1">R$ {maskMoney(order?.valorcamento ? order?.valorcamento : '0.00')}</td>
+                                <td className="px-2 py-1">R$ {maskMoney(order?.vaservico ? order?.vaservico : '0.00')}</td>
+                                <td className="px-2 py-1">R$ {maskMoney(order?.valpecas ? order?.valpecas : '0.00')}</td>
+                                <td className="px-2 py-1">R$ {maskMoney(order?.custo ? order?.custo : '0.00')}</td>
+                                <td className="px-2 py-1">{order?.dtentrega ? moment(order?.dtentrega).format("DD/MM/YYYY") : ''}</td>
                                 <td className="py-1"><span className={`px-3 py-1 rounded-full font-semibold drop-shadow-md ${stylesOrderStatus(parseInt(order?.status))}`}>{statusOrdemByValue(parseInt(order?.status))}</span></td>
                             </tr>
                         ))}
