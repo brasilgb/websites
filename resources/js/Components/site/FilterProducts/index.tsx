@@ -9,7 +9,7 @@ interface FilterProductsProps {
 const FilterProducts = (props: FilterProductsProps) => {
     return (
         <main className="bg-gray-100 flex items-center justify-center py-6 px-4">
-            <div className="container m-auto flex items-center justify-start gap-2 w-full">
+            <div className="container m-auto flex items-center justify-start gap-2 w-full overflow-auto">
                 <Link
                     className="text-xs font-medium uppercase text-gray-700/70 hover:text-gray-700 transition-colors duration-300"
                     href={`/produtos`}
