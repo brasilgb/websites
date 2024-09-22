@@ -77,8 +77,8 @@ class CategoryController extends Controller
             $request->featured->move($storePath, $fileName);
         }
         if ($request->hasfile('thumbnail')) {
-            $fileName = time() . '.' . $request->featured->extension();
-            $request->featured->move($storePath, $fileName);
+            $fileName = time() . '.' . $request->thumbnail->extension();
+            $request->thumbnail->move($storePath, $fileName);
         }
 
         $data['parent'] = $request->parent;

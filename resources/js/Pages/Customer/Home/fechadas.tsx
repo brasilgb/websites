@@ -33,21 +33,21 @@ const Fechadas = ({ data }: FechadasProps) => {
     return (
         <>
             <div className="p-2">
-                <h1 className="text-base font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço entregues</h1>
+                <h1 className="md:text-base text-xs font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço entregues</h1>
             </div>
             <div className="w-full px-2 pb-2 overflow-x-auto max-h-[650px]">
-                <table className="table-fixed w-full">
+                <table className="table w-full">
                     <thead>
                         <tr className="text-left bg-slate-200 md:text-base text-sm text-gray-600">
-                            <th className="px-2 py-1 w-20">N° OS</th>
+                            <th className="px-2 py-1 whitespace-nowrap">N° OS</th>
                             <th className="px-2 py-1">Defeito</th>
                             <th className="px-2 py-1">Desc. Orçamento</th>
-                            <th className="px-2 py-1">Val. Orçamento</th>
-                            <th className="px-2 py-1">Val. Serviços</th>
-                            <th className="px-2 py-1">Val. Peças</th>
-                            <th className="px-2 py-1">Val. Custo Total</th>
-                            <th className="px-2 py-1">Entrega</th>
-                            <th className="px-2 py-1">Status</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Val. Orçamento</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Val. Serviços</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Val. Peças</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Val. Custo Total</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Entrega</th>
+                            <th className="px-2 py-1 whitespace-nowrap">Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,12 +56,12 @@ const Fechadas = ({ data }: FechadasProps) => {
                                 <td className="px-2 py-1">{order?.id}</td>
                                 <td className="px-2 py-1">{order?.defeito}</td>
                                 <td className="px-2 py-1">{order?.descorcamento}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order?.valorcamento ? order?.valorcamento : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order?.vaservico ? order?.vaservico : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order?.valpecas ? order?.valpecas : '0.00')}</td>
-                                <td className="px-2 py-1">R$ {maskMoney(order?.custo ? order?.custo : '0.00')}</td>
-                                <td className="px-2 py-1">{order?.dtentrega ? moment(order?.dtentrega).format("DD/MM/YYYY") : ''}</td>
-                                <td className="py-1"><span className={`px-3 py-1 rounded-full font-semibold drop-shadow-md ${stylesOrderStatus(parseInt(order?.status))}`}>{statusOrdemByValue(parseInt(order?.status))}</span></td>
+                                <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.valorcamento ? order?.valorcamento : '0.00')}</td>
+                                <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.vaservico ? order?.vaservico : '0.00')}</td>
+                                <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.valpecas ? order?.valpecas : '0.00')}</td>
+                                <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.custo ? order?.custo : '0.00')}</td>
+                                <td className="px-2 py-1 whitespace-nowrap">{order?.dtentrega ? moment(order?.dtentrega).format("DD/MM/YYYY") : ''}</td>
+                                <td className="py-1 whitespace-nowrap"><span className={`px-3 py-1 rounded-full font-semibold drop-shadow-md ${stylesOrderStatus(parseInt(order?.status))}`}>{statusOrdemByValue(parseInt(order?.status))}</span></td>
                             </tr>
                         ))}
                     </tbody>
