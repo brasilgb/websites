@@ -32,7 +32,7 @@ const CategoriesGrid = ({ data }: ServiceProps) => {
                                             </p>
                                         </div>
                                         <a
-                                            href={`https://wa.me/${datasite.config?.whatsapp}?text=Gostaria de um orçamento.`}
+                                            href={`https://wa.me/${datasite.config?.whatsapp}?text=Gostaria de um orçamento de ${service?.title}.`}
                                             target="_blank"
                                             className="flex justify-end absolute bottom-2 right-2 bg-[#25D366] gap-1 py-2 p-3 rounded-2xl text-white font-semibold"
                                         >
