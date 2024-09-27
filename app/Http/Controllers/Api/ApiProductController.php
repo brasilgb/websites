@@ -15,16 +15,16 @@ class ApiProductController extends Controller
         $per_page = $request->per_page;
 
         $categories = Post::with('categories')
-                     ->whereHas('categories', function($query) use($categoryid) { 
-                         $query->where('categories.id', $categoryid); 
-                     })
-                     ->limit($per_page)->get();
+            ->whereHas('categories', function ($query) use ($categoryid) {
+                $query->where('categories.id', $categoryid);
+            })
+            ->limit($per_page)->get();
 
         return response()->json([
             "response" => [
                 "success" => true,
                 "category" => $categories->count() > 0 ? $categories[0]->title : '',
-                "data" => $categories
+                "products" => $categories
             ],
         ], 201);
     }
