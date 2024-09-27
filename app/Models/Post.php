@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-
+    protected $hidden = ['categories'];
     protected $fillable = [
         'brand', //marca do produto ou página
         'title', //título da postagem ou página
@@ -29,6 +29,6 @@ class Post extends Model
 
     public function categories()
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsToMany('App\Models\Category', 'category_post', 'post_id', 'category_id');
     }
 }

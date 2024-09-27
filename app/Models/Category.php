@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
-
+    protected $hidden = ['pivot'];
     protected $fillable = [
         'name',
         'slug',
@@ -26,7 +26,7 @@ class Category extends Model
     ];
 
     public function posts() {
-        return $this->belongsToMany(Post::class);
+        return $this->belongsToMany('App\Models\Post', 'category_post', 'category_id', 'post_id');
     }
 
     public function subCategories() {
