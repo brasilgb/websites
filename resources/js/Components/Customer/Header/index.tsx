@@ -9,7 +9,7 @@ const HeaderCustomer = () => {
         <header className="h-16 bg-gray-50 drop-shadow-sm">
             <div className="container m-auto h-full flex items-center justify-between">
                 <div className="w-14 h-14 rounded-full bg-gray-200 p-1 flex items-center justify-center">
-                    <img className="rounded-full" src={`/storage/images/${auth?.user?.avatar ? auth?.user?.avatar : 'default.png'}`} alt="" />
+                    <img className="rounded-full h-full m-full" src={`/storage/images/${auth?.user?.avatar ? auth?.user?.avatar : 'default.png'}`} alt="" />
                 </div>
                 <div>
                     <Link

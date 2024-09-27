@@ -33,15 +33,15 @@ const Fechadas = ({ data }: FechadasProps) => {
     return (
         <>
             <div className="p-2">
-                <h1 className="md:text-base text-xs font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço entregues</h1>
+                <h1 className="md:text-base text-xs font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço entregues - {data?.orders?.filter((fl: any) => (fl.status == 8)).length}</h1>
             </div>
-            <div className="w-full px-2 pb-2 overflow-x-auto max-h-[650px]">
+            <div className="w-full px-2 pb-2 overflow-x-auto max-h-[600px]">
                 <table className="table w-full">
                     <thead>
                         <tr className="text-left bg-slate-200 md:text-base text-sm text-gray-600">
                             <th className="px-2 py-1 whitespace-nowrap">N° OS</th>
                             <th className="px-2 py-1">Defeito</th>
-                            <th className="px-2 py-1">Desc. Orçamento</th>
+                            <th className="px-2 py-1">Serviço executado</th>
                             <th className="px-2 py-1 whitespace-nowrap">Val. Orçamento</th>
                             <th className="px-2 py-1 whitespace-nowrap">Val. Serviços</th>
                             <th className="px-2 py-1 whitespace-nowrap">Val. Peças</th>
@@ -51,11 +51,14 @@ const Fechadas = ({ data }: FechadasProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data?.orders?.filter((fl: any) => (fl.status == 8)).map((order: any, idx: number) => (
+                        {data?.orders
+                        .filter((fl: any) => (fl.status == 8))
+                        .sort((a:any, b:any) => (a.id < b.id ? 1 : -1))
+                        .map((order: any, idx: number) => (
                             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-slate-100 text-gray-600' : 'text-gray-500'}`}>
                                 <td className="px-2 py-1">{order?.id}</td>
                                 <td className="px-2 py-1">{order?.defeito}</td>
-                                <td className="px-2 py-1">{order?.descorcamento}</td>
+                                <td className="px-2 py-1">{order?.detalhes}</td>
                                 <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.valorcamento ? order?.valorcamento : '0.00')}</td>
                                 <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.vaservico ? order?.vaservico : '0.00')}</td>
                                 <td className="px-2 py-1 whitespace-nowrap">R$ {maskMoney(order?.valpecas ? order?.valpecas : '0.00')}</td>

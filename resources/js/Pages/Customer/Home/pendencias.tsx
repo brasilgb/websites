@@ -33,10 +33,10 @@ const Pendencias = ({ data }: PendenciasProps) => {
     return (
         <>
             <div className="p-2">
-                <h1 className="md:text-base text-xs font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço pendentes</h1>
+                <h1 className="md:text-base text-xs font-semibold border-b text-megb-red-primary/80 uppercase">Ordens de serviço pendentes - {data?.orders?.filter((fl: any) => (fl.status != 8)).length}</h1>
             </div>
             <div className="w-full px-2 pb-2 overflow-auto max-h-[650px]">
-                <table className="table">
+                <table className="table w-full">
                     <thead>
                         <tr className="text-left bg-slate-200 md:text-base text-sm text-gray-600">
                             <th className="px-2 py-1 whitespace-nowrap">N° OS</th>
@@ -48,7 +48,10 @@ const Pendencias = ({ data }: PendenciasProps) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {data.orders?.filter((fl: any) => (fl.status != 8)).map((order: any, idx: number) => (
+                        {data.orders
+                        .filter((fl: any) => (fl.status != 8))
+                        .sort((a:any, b:any) => (a.id < b.id ? 1 : -1))
+                        .map((order: any, idx: number) => (
                             <tr key={idx} className={`${idx % 2 === 0 ? 'bg-slate-100 text-gray-600' : 'text-gray-500'}`}>
                                 <td className="px-2 py-1">{order?.id}</td>
                                 <td className="px-2 py-1">{order?.defeito}</td>
