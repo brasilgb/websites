@@ -9,9 +9,6 @@ interface ProductProps {
 
 const ProductContent = ({ product }: ProductProps) => {
     const { datasite } = usePage().props as any;
-    console.log(product);
-
-
     return (
         <div className="relative bg-white shadow-md rounded-md duration-500 hover:shadow-xl pb-6">
 

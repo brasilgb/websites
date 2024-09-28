@@ -3,66 +3,51 @@ import ProductContent from "./ProductContent"
 import { RiArrowDownDoubleFill } from "react-icons/ri";
 import HeaderSection from "../HeaderSection";
 import { usePage } from "@inertiajs/react";
-import { apiweb } from "@/bootstrap";
 
 interface ProductsProps {
-    product: []
+    data: any
 };
 
-const ProductsGrid = () => {
+const ProductsGrid = ({ data }: ProductsProps) => {
     const { url } = usePage();
     const { datasite } = usePage().props as any;
-    const [productsCategory, setProductsCategory] = useState<any>([]);
-
-    useEffect(() => {
-        getProductsForCategory();
-    }, []);
-
-    const getProductsForCategory = async () => {
-        await apiweb.get(`products?category=${9}&per_page=2`)
-            .then((response) => {
-                const result = response.data.response;
-                setProductsCategory(result);
-                console.log(result)
-            })
+    const [cardLoad, setCardLoad] = useState<any>([]);
+    const [numItems, setNumItens] = useState<number>(10);
+    const [buttonText, setButtonText] = useState<string>("Carregar Mais");
+    // console.log(data[0]?.pivot?.category_id);
+    
+    const catName = datasite?.allcat?.filter((ct:any) => (ct.id === data[0]?.pivot?.category_id));
+    const size = 10;
+    const handleNumItems = () => {
+        if (numItems < data.length) {
+            setNumItens(numItems + size);
+        } else {
+            setNumItens(size)
+        }
     }
 
-    // const [cardLoad, setCardLoad] = useState<any>([]);
-    // const [numItems, setNumItens] = useState<number>(10);
-    // const [buttonText, setButtonText] = useState<string>("Carregar Mais");
+    useEffect(() => {
+        const items = data?.filter((item: any, idx: number) => (idx < numItems));
+        setCardLoad(items)
+        if (numItems  < data.length) {
+            setButtonText("Carregar Mais");
+        } else {
+            setButtonText("Carregar Menos");
+        }
+    }, [data, numItems, size]);
 
-    // const size = 10;
-    // const handleNumItems = () => {
-    //     if (numItems > size) {
-    //         setNumItens(size);
-    //     } else {
-    //         setNumItens(numItems + size)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     const items = data?.filter((item: any, idx: number) => (idx < numItems));
-    //     setCardLoad(items)
-    //     if (numItems > size) {
-    //         setButtonText("Carregar Menos");
-    //     } else {
-    //         setButtonText("Carregar Mais");
-    //     }
-    // }, [data, numItems, size]);
-
-    const catName = datasite?.allcat?.filter((ct: any) => (ct.id === productsCategory[0]?.pivot?.category_id));
     return (
         <section className="px-4 py-8 bg-gray-50">
             <div className='container mx-auto'>
-                <HeaderSection title={url.split('/')[3] ? productsCategory?.category : 'Produtos'} />
+                <HeaderSection title={url.split('/')[3] ? catName[0]?.name : 'Produtos'} />
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-                    {productsCategory?.products?.map((post: any, idx: number) => (
+                    {cardLoad?.map((post: any, idx: number) => (
                         <div key={idx} data-aos="zoom-in">
                             <ProductContent product={post} />
                         </div>
                     ))}
                 </div>
-                {/* {data.length > size &&
+                {data.length > size &&
                     <div className="mt-4 flex flex-col items-center justify-center">
 
                         <div className="pb-2 text-sm font-semibold text-gray-500">{cardLoad.length} produtos de {data.length}</div>
@@ -71,13 +56,13 @@ const ProductsGrid = () => {
                             onClick={() => handleNumItems()}
                             type="button"
                         >
-                            <span className={`hover:rotate-0 ${cardLoad.length > size ? '-rotate-180' : 'rotate-0'} transition-all duration-300`}>
+                            <span className={`hover:rotate-0 ${numItems < data.length ? 'rotate-0' : '-rotate-180'} transition-all duration-300`}>
                                 <RiArrowDownDoubleFill size={25} />
                             </span>
                             <span>{buttonText}</span>
                         </button>
                     </div>
-                } */}
+                }
 
             </div>
         </section>
