@@ -10,7 +10,7 @@ class Category extends Model
     use HasFactory;
 
     protected $table = 'categories';
-    protected $hidden = ['pivot'];
+    // protected $hidden = ['pivot'];
     protected $fillable = [
         'name',
         'slug',
