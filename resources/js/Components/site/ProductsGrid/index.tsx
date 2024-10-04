@@ -49,7 +49,6 @@ const ProductsGrid = ({ data }: ProductsProps) => {
             const ordered = cardLoad.sort((a: any, b: any) => (a.title < b.title ? 1 : -1));
             setCardLoad(ordered);
         }
-
     }
 
     const handleSearchProduct = async (e: any) => {
