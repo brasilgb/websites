@@ -54,7 +54,6 @@ const ProductsGrid = ({ data }: ProductsProps) => {
     const handleSearchProduct = async (e: any) => {
         const searchTerm = e.target.value;
         if (searchTerm == '') {
-            
             setCardLoad([]);
         } else {
             await apiweb.get(`products/search?product=${searchTerm}`)
