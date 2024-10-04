@@ -28,4 +28,23 @@ class ApiProductController extends Controller
             ],
         ], 201);
     }
+
+    public function searchProduct(Request $request)
+    {
+        $product = $request->product;
+        if($product) {
+            $categories = Post::where('type',2)->where('title','like', '%'.$product.'%')->get();
+        } else {
+            $categories = Post::where('type',2)->where('prodfeatured', 1)->get();
+        }
+        //$categories = Post::where('categories')->where('title','like', $product.'%')->get();
+
+        return response()->json([
+            "response" => [
+                "success" => true,
+                "products" => $categories
+            ],
+        ], 201);
+    }
+
 }
