@@ -71,17 +71,19 @@ const ProductsGrid = ({ data }: ProductsProps) => {
 
     return (
         <section className="px-4 py-8 bg-gray-50">
-            <div className="container m-auto mb-4 flex items-center justify-between">
-                <div>
+            <div className="container m-auto mb-4 flex items-center justify-start">
+                <div className="flex items-center justify-start flex-1">
                     <button
-                        className="flex items-center justify-start gap-4"
+                        className="flex items-center justify-start md:gap-4 w-auto"
                         onClick={() => handleOrderProduct()}
                     >
-                        <span className="text-xs font-semibold uppercase">Ordenar</span>
+                        <div className="text-xs font-semibold uppercase hidden md:block">Ordenar</div>
+                        <div>
                         {orderItems
                             ? <FaArrowUpAZ size={20} />
                             : <FaArrowUpZA size={20} />
                         }
+                        </div>
                     </button>
                 </div>
                 <div className="">
