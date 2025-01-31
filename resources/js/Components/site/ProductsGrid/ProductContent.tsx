@@ -1,5 +1,5 @@
 import { maskMoney } from "@/Utils";
-import { Link, usePage } from "@inertiajs/react";
+import { usePage } from "@inertiajs/react";
 import React from 'react'
 import { IoLogoWhatsapp } from "react-icons/io5"
 
@@ -32,11 +32,6 @@ const ProductContent = ({ product }: ProductProps) => {
                             </>
                         }
                     </div>
-                    <Link
-                    href={`produtos/${product?.slug}`}
-                    >
-                    Ver
-                    </Link>
                     <a
                         href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${product?.title}`}
                         target="_blank" className="flex justify-end absolute text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
