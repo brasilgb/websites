@@ -11,7 +11,7 @@ const ProductContent = ({ product }: ProductProps) => {
     const { datasite } = usePage().props as any;
 
     return (
-        <div className="relative bg-white shadow-md rounded-md duration-500 hover:shadow-xl pb-6">
+        <div className="relative bg-white shadow-md rounded-md duration-500 hover:shadow-xl ">
 
             <img src={`/storage/uploads/${product?.featured}`} alt="Product" className=" object-cover rounded-t-md" />
             <div className="px-4 py-3">
@@ -33,17 +33,20 @@ const ProductContent = ({ product }: ProductProps) => {
                             </>
                         }
                     </div>
+                </div>
+                    <div className="flex items-center justify-between w-full">
                     <Link
+                    className="flex items-center justify-center gap-1 px-3 py-1 text-white bg-megb-red-primary hover:bg-megb-red-primary/80 transition-colors duration-300 text-sm font-semibold border border-megb-red-primary/20 rounded-md shadow-md"
                     href={route(`products.getproducts`, product?.slug)}
                     >
-                    Ver{product.categories}
+                    Detalhes
                     </Link>
                     <a
                         href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${product?.title}`}
-                        target="_blank" className="flex justify-end absolute text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
+                        target="_blank" className="flex justify-end text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
                         <IoLogoWhatsapp size={30} />
                     </a>
-                </div>
+                    </div>
             </div>
 
         </div>
