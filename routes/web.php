@@ -55,5 +55,6 @@ require __DIR__ . '/auth.php';
 Route::get('/produtos/categoria/{category?}', [SiteProductController::class, 'show']);
 Route::get('/servicos/{category?}/{service?}', [SiteServiceController::class, 'index']);
 Route::get('/produtos/{category?}/{product?}', [SiteProductController::class, 'index']);
+Route::get('/produto/{product?}', [SiteProductController::class, 'getProducts'])->name("products.getproducts");
 Route::get('/{slug}', [RedirectController::class, 'index'])->where('slug', '^((?!login|register|admin).)*$')->name('slug');
 Route::post('/sendmail', [ContactController::class, 'send'])->name('sendmail');

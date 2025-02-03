@@ -23,7 +23,7 @@ const NavTop = () => {
                 title="Produtos"
                 slug={'/produtos'}
                 param="products"
-                active={url.startsWith('/produtos')}
+                active={url.startsWith('/produtos') || url.startsWith('/produto')}
             />
             {datasite?.pag.map((pag: any, idx: number) => (
                 <LinkMenu

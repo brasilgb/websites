@@ -8,10 +8,11 @@ import { apiweb } from "@/bootstrap";
 import { IoClose, IoSearch } from "react-icons/io5";
 
 interface ProductsProps {
-    data: any
+    data: any;
+    datacat?: any;
 };
 
-const ProductsGrid = ({ data }: ProductsProps) => {
+const ProductsGrid = ({ data, datacat }: ProductsProps) => {
     const { url } = usePage();
     const { datasite } = usePage().props as any;
     const [cardLoad, setCardLoad] = useState<any>([]);
@@ -21,6 +22,7 @@ const ProductsGrid = ({ data }: ProductsProps) => {
     const [searchItem, setSearchItem] = useState<boolean>(false);
 
     const catName = datasite?.allcat?.filter((ct: any) => (ct.id === data[0]?.pivot?.category_id));
+    console.log('pivo', datacat)
     const size = 10;
     const handleNumItems = () => {
         if (numItems < data.length) {
@@ -32,7 +34,7 @@ const ProductsGrid = ({ data }: ProductsProps) => {
 
     useEffect(() => {
         const items = data?.filter((item: any, idx: number) => (idx < numItems)).sort((a: any, b: any) => (a.title > b.title ? 1 : -1));
-        setCardLoad(items)
+        setCardLoad(data)
         if (numItems < data.length) {
             setButtonText("Carregar Mais");
         } else {

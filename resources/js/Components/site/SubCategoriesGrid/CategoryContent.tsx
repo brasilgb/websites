@@ -6,6 +6,7 @@ interface ServiceProps {
 }
 
 const CategoryContent = ({ data }: ServiceProps) => {
+    
 const { url } = usePage()
     return (
         <Link href={`${url}/${data?.slug}`}>
@@ -13,7 +14,7 @@ const { url } = usePage()
                 <img src={`/storage/uploads/${data?.featured}`}
                     alt="" className="w-full md:h-[250px] object-bottom object-fill"
                 />
-                <div className="p-2 md:p-4 flex flex-col">
+                <div className="p-2 md:p-4 flex flex-col">hdfdfdfsd
                     <div className='flex flex-col flex-1 flex-grow'>
                         <h3 className="md:text-xl font-semibold text-blue-900 mb-2">{data?.name}</h3>
                         <p className="text-gray-700 mb-4 two-lines">

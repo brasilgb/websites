@@ -5,14 +5,7 @@ import SubCategoriesGrid from "@/Components/site/SubCategoriesGrid";
 import FilterProducts from "@/Components/site/FilterProducts";
 import CategoriesGrid from "@/Components/site/CategoriesGrid";
 
-interface CategoryProps {
-  category: any;
-  products: any;
-  query: any;
-  imagefeatured: any;
-}
-
-const Categories = ({ category, products, imagefeatured, query }: CategoryProps) => {
+const Categories = ({ category, products, imagefeatured, query }: any) => {
   const { url } = usePage();
 
   return (
@@ -76,7 +69,7 @@ const Categories = ({ category, products, imagefeatured, query }: CategoryProps)
         {url === '/produtos' || query
           ? <>
             <FilterProducts data={category?.sub_categories} />
-            <ProductsGrid data={products} />
+            <ProductsGrid data={products} datacat={category} />
           </>
           :
           <>

@@ -9,6 +9,8 @@ import HeaderSection from "@/Components/site/HeaderSection";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Posts = ({ posts, imagefeatured }: any) => {
+  console.log(posts);
+  
   const { datasite } = usePage().props as any;
   const { url } = usePage();
   const { isLoaded } = useLoadScript({
@@ -32,7 +34,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
       </Head>
       <div className="relative h-16 md:h-60 w-full">
         <img
-          src={`/storage/uploads/${url.split('/')[1] === 'servicos' ? imagefeatured : posts?.featured}`}
+          src={`/storage/uploads/${url.split('/')[1] === 'servicos' || url.split('/')[1] === 'produtos' ? imagefeatured : posts?.featured}`}
           alt=""
           className="object-fill object-center w-full h-full"
         />
@@ -104,7 +106,7 @@ const Posts = ({ posts, imagefeatured }: any) => {
         <div className='container mx-auto'>
           <div className="px-4 text-base text-gray-600">
             <HeaderSection title={posts.title} />
-            {/* {Parser().parse(posts?.summary)} */}
+            {Parser().parse(posts?.summary)}
             <div className="styles-timynce" dangerouslySetInnerHTML={{ __html: posts?.content }} />
           </div>
 

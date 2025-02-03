@@ -1,5 +1,5 @@
 import { maskMoney } from "@/Utils";
-import { usePage } from "@inertiajs/react";
+import { Link, usePage } from "@inertiajs/react";
 import React from 'react'
 import { IoLogoWhatsapp } from "react-icons/io5"
 
@@ -9,6 +9,7 @@ interface ProductProps {
 
 const ProductContent = ({ product }: ProductProps) => {
     const { datasite } = usePage().props as any;
+
     return (
         <div className="relative bg-white shadow-md rounded-md duration-500 hover:shadow-xl pb-6">
 
@@ -32,6 +33,11 @@ const ProductContent = ({ product }: ProductProps) => {
                             </>
                         }
                     </div>
+                    <Link
+                    href={route(`products.getproducts`, product?.slug)}
+                    >
+                    Ver{product.categories}
+                    </Link>
                     <a
                         href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${product?.title}`}
                         target="_blank" className="flex justify-end absolute text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
