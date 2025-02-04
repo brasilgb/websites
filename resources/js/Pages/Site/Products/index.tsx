@@ -1,19 +1,20 @@
-import React, { Fragment, useMemo } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
-import { Parser } from "html-to-react";
 import HeaderSection from "@/Components/site/HeaderSection";
 import { IoDocumentText, IoLogoWhatsapp } from 'react-icons/io5';
 
 const Products = ({ products, category }: any) => {
-  console.log(products);
   const { datasite } = usePage().props as any;
   const { url } = usePage();
-
   return (
     <GuestLayout>
       <Head>
         <title>{products?.title}</title>
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={`https://eplusteutonia.com.br${url}`} />
+        <meta property="og:title" content={products?.title} />
+        <meta property="og:description" content={products?.summary} />
+        <meta property="og:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
       </Head>
       <div className="relative h-16 md:h-60 w-full">
         <img
@@ -41,7 +42,7 @@ const Products = ({ products, category }: any) => {
                   /
                 </li>
                 <li>
-                <Link
+                  <Link
                     className="text-gray-300 hover:text-gray-600"
                     href="/produtos"
                   >
@@ -75,8 +76,8 @@ const Products = ({ products, category }: any) => {
                 <div className="styles-timynce" dangerouslySetInnerHTML={{ __html: products?.content }} />
               </div>
               <div className='sm:order-2 mb-2'>
-                
-              <a
+
+                <a
                   href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${products?.title}`}
                   target="_blank" className="flex justify-end text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
                   <IoLogoWhatsapp size={30} />
