@@ -10,11 +10,20 @@ const Products = ({ products, category }: any) => {
     <GuestLayout>
       <Head>
         <title>{products?.title}</title>
-        <meta property="og:type" content="website" />
+
+
+        <meta property="og:title" content={products?.title} />
+        <meta property="og:site_name" content="Eplus Teutonia" />
+        <meta property="og:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
+        <meta property="og:image:width" content="640" />
+        <meta property="og:image:height" content="300" />
+
+
+        {/* <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://eplusteutonia.com.br${url}`} />
         <meta property="og:title" content={products?.title} />
         <meta property="og:description" content={products?.summary} />
-        <meta property="og:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
+        <meta property="og:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} /> */}
       </Head>
       <div className="relative h-16 md:h-60 w-full">
         <img
