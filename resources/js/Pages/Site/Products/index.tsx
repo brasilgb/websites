@@ -2,6 +2,7 @@ import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, Link, usePage } from '@inertiajs/react';
 import HeaderSection from "@/Components/site/HeaderSection";
 import { IoDocumentText, IoLogoWhatsapp } from 'react-icons/io5';
+import { maskMoney } from '@/Utils';
 
 const Products = ({ products, category }: any) => {
   const { datasite } = usePage().props as any;
@@ -82,6 +83,7 @@ const Products = ({ products, category }: any) => {
               <div className='sm:order-1 order-2 sm:w-3/5'>
                 {/* {Parser().parse(products?.summary)} */}
                 <div className='flex items-center gap-1'><IoDocumentText size={22} /> <h1 className='sm:text-2xl text-lg text-gray-700 uppercase font-bold'>Descrição do produto</h1></div>
+                
                 <div className="styles-timynce" dangerouslySetInnerHTML={{ __html: products?.content }} />
               </div>
               <div className='sm:order-2 mb-2'>
@@ -92,12 +94,31 @@ const Products = ({ products, category }: any) => {
                   <IoLogoWhatsapp size={30} />
                 </a>
               </div>
-              <div className='border bg-gray-50 p-2 sm:order-3 border-white shadow-md mb-4'>
+              <div className='sm:order-3'>
+              <div className='border bg-gray-50 p-2 border-white shadow-md mb-4'>
                 <img
                   src={`/storage/uploads/${products?.featured}`}
                   alt={products.title}
                   className="object-fill object-center w-full h-full"
                 />
+              </div>
+              <div className='flex flex-col items-center h-20'>
+                  <div className='flex items-center'>
+                  {products?.valnormal && !products?.valpromo &&
+                    <p className="md:text-lg font-semibold text-megb-blue-secundary cursor-auto">R$ {maskMoney(products?.valnormal)}</p>
+                  }
+                  {products?.valnormal && products?.valpromo &&
+                    <>
+                      <p className="md:text-2xl font-semibold text-megb-blue-secundary cursor-auto">R$ {maskMoney(products?.valpromo)}</p>
+
+                      <del>
+                        <p className="md:text-lg  text-megb-red-primary cursor-auto ml-2">R$ {maskMoney(products?.valnormal)}</p>
+                      </del>
+                    </>
+                  }
+                  </div>
+                  <h1>Veja condições em nossa loja</h1>
+                </div>
               </div>
             </div>
           </div>

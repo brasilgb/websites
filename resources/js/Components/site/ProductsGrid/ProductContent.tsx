@@ -18,7 +18,7 @@ const ProductContent = ({ product }: ProductProps) => {
                 <span className="text-gray-400 mr-3 uppercase text-xs">{product?.brand}</span>
                 <p className="text-sm font-bold text-black truncate block capitalize">{product?.title}</p>
                 <div className="flex items-center">
-                    <div className="flex items-center justify-end w-full pb-2">
+                    <div className="flex items-center justify-end w-full py-4">
 
                         {product?.valnormal && !product?.valpromo &&
                             <p className="text:base md:text-lg font-semibold text-megb-blue-secundary cursor-auto">R$ {maskMoney(product?.valnormal)}</p>
