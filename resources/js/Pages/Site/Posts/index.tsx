@@ -9,7 +9,6 @@ import HeaderSection from "@/Components/site/HeaderSection";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
 
 const Posts = ({ posts, imagefeatured }: any) => {
-  console.log(posts);
   
   const { datasite } = usePage().props as any;
   const { url } = usePage();

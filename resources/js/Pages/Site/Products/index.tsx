@@ -7,21 +7,31 @@ import { maskMoney } from '@/Utils';
 const Products = ({ products, category }: any) => {
   const { datasite } = usePage().props as any;
   const { url } = usePage();
+  
   return (
     <GuestLayout>
       <Head>
+
+        {/* <!-- HTML Meta Tags --> */}
         <title>{products?.title}</title>
+        <meta name="description" content={products?.summary} />
+
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta property="og:url" content={`https://eplusteutonia.com.br/${url}`} />
         <meta property="og:type" content="website" />
         <meta property="og:title" content={products?.title} />
         <meta property="og:description" content={products?.summary} />
         <meta property="og:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
-        <meta property="og:locale" content="pt_BR" />
-        <meta property="og:url" content="https://eplusteutonia.com.br/" />
-        <meta property="og:site_name" content="Eplus Teutonia" />
 
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="eplusteutonia.com.br" />
+        <meta property="twitter:url" content={`https://eplusteutonia.com.br/${url}`}  />
+        <meta name="twitter:title" content={products?.title} />
+        <meta name="twitter:description" content={products?.summary} />
+        <meta name="twitter:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
       </Head>
+
       <div className="relative h-16 md:h-60 w-full">
         <img
           src={`/storage/uploads/${category?.featured}`}
