@@ -7,7 +7,7 @@ import { maskMoney } from '@/Utils';
 const Products = ({ products, category }: any) => {
   const { datasite } = usePage().props as any;
   const { url } = usePage();
-  
+
   return (
     <GuestLayout>
       <Head>
@@ -26,7 +26,7 @@ const Products = ({ products, category }: any) => {
         {/* <!-- Twitter Meta Tags --> */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="eplusteutonia.com.br" />
-        <meta property="twitter:url" content={`https://eplusteutonia.com.br/${url}`}  />
+        <meta property="twitter:url" content={`https://eplusteutonia.com.br/${url}`} />
         <meta name="twitter:title" content={products?.title} />
         <meta name="twitter:description" content={products?.summary} />
         <meta name="twitter:image" content={`https://eplusteutonia.com.br/storage/uploads/${products?.featured}`} />
@@ -92,14 +92,7 @@ const Products = ({ products, category }: any) => {
 
                 <div className="styles-timynce" dangerouslySetInnerHTML={{ __html: products?.content }} />
               </div>
-              <div className='sm:order-2 mb-2'>
 
-                <a
-                  href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${products?.title}`}
-                  target="_blank" className="flex justify-end text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
-                  <IoLogoWhatsapp size={30} />
-                </a>
-              </div>
               <div className='sm:order-3'>
                 <div className='border bg-gray-50 p-2 border-white shadow-md mb-4'>
                   <img
@@ -123,7 +116,16 @@ const Products = ({ products, category }: any) => {
                       </>
                     }
                   </div>
-                  <h1>Veja condições em nossa loja</h1>
+                  <div className='flex items-center gap-4'>
+                    <h1>Veja condições em nossa loja</h1>
+                    <div className='sm:order-2 mb-2'>
+                      <a
+                        href={`https://wa.me/${datasite.config?.whatsapp}?text=Quero informações sobre ${products?.title}`}
+                        target="_blank" className="flex justify-end text-color bottom-2 right-2 text-[#25D366] hover:text-[#25D366]/90">
+                        <IoLogoWhatsapp size={30} />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
